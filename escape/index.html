@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home1 - Hidden Logic</title>
+  <link rel="icon" href="images/logo.jpeg">
+  <script src="tailwind.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="footer.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap"
+    rel="stylesheet">
+  <style>
+    /* RTL */
+    .rtl {
+      direction: rtl;
+    }
+
+
+    /* THEME TOGGLE */
+    :root {
+      --home-bg: #ffffff;
+      --text-color: #111111;
+    }
+
+    [data-theme="dark"] {
+      --home-bg: #000000;
+      --text-color: #ffffff;
+    }
+
+    body {
+      background-color: var(--home-bg) !important;
+      color: var(--text-color);
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    [data-theme="dark"] section,
+    [data-theme="dark"] .card {
+      background-color: #000000 !important;
+    }
+
+    [data-theme="dark"] .btn,
+    [data-theme="dark"] .btn1:hover {
+      color: #000000 !important;
+    }
+
+    [data-theme="dark"] body,
+    [data-theme="dark"] p,
+    [data-theme="dark"] h1,
+    [data-theme="dark"] h2,
+    [data-theme="dark"] h3,
+    [data-theme="dark"] h4,
+    [data-theme="dark"] h5,
+    [data-theme="dark"] h6,
+    [data-theme="dark"] span,
+    [data-theme="dark"] li,
+    [data-theme="dark"] a,
+    [data-theme="dark"] i,
+    [data-theme="dark"] label,
+    [data-theme="dark"] table,
+    [data-theme="dark"] th,
+    [data-theme="dark"] td,
+    [data-theme="dark"] div,
+    [data-theme="dark"] small,
+    [data-theme="dark"] strong {
+      color: #ffffff !important;
+    }
+
+    /* PREMIUM DARK MODE CONTRAST FIXES */
+    [data-theme="dark"] .bg-white,
+    [data-theme="dark"] .bg-\[\#F8F7FF\] {
+      background-color: #000000 !important;
+      border-color: #2b1d4c !important;
+    }
+
+    [data-theme="dark"] .border-gray-200,
+    [data-theme="dark"] .border-violet-100,
+    [data-theme="dark"] .border-violet-200,
+    [data-theme="dark"] .border-purple-200 {
+      border-color: #2b1d4c !important;
+    }
+
+    [data-theme="dark"] .bg-violet-100,
+    [data-theme="dark"] .bg-purple-100,
+    [data-theme="dark"] .bg-violet-50,
+    [data-theme="dark"] .bg-purple-50 {
+      background-color: rgba(139, 92, 246, 0.15) !important;
+      border-color: rgba(139, 92, 246, 0.3) !important;
+    }
+
+    [data-theme="dark"] .text-violet-700,
+    [data-theme="dark"] .text-purple-700,
+    [data-theme="dark"] .bg-violet-100 i,
+    [data-theme="dark"] .bg-violet-100 span,
+    [data-theme="dark"] .bg-purple-100 i,
+    [data-theme="dark"] .bg-purple-100 span,
+    [data-theme="dark"] .bg-violet-50 i,
+    [data-theme="dark"] .bg-violet-50 span {
+      color: #c084fc !important;
+    }
+  </style>
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
+</head>
+
+<body class="font-sans">
+  <!-- navbar -->
+  <div id="navbar"></div>
+
+  <!-- HERO BANNER -->
+<!-- HERO SECTION -->
+<section class="relative overflow-hidden bg-[#0F0B1A] min-h-screen flex items-center">
+
+    <!-- BACKGROUND GLOW -->
+    <div class="absolute top-0 left-0 w-72 sm:w-96 md:w-[500px] h-72 sm:h-96 md:h-[500px] bg-violet-700/30 blur-[120px] rounded-full"></div>
+
+    <div class="absolute bottom-0 right-0 w-72 sm:w-96 md:w-[450px] h-72 sm:h-96 md:h-[450px] bg-purple-500/20 blur-[100px] rounded-full"></div>
+
+    <!-- GRID OVERLAY -->
+    <div class="absolute inset-0 opacity-10"
+        style="background-image:
+        linear-gradient(#ffffff15 1px, transparent 1px),
+        linear-gradient(90deg, #ffffff15 1px, transparent 1px);
+        background-size: 40px 40px;">
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+
+        <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+
+            <!-- LEFT CONTENT -->
+            <div class="text-center lg:text-left order-2 lg:order-1">
+
+                <!-- HEADING -->
+                <h1
+                    class="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black leading-tight text-white">
+
+                    Build
+
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-500">
+                        Cinematic
+                    </span>
+
+                    Escape Room Experiences
+                </h1>
+
+                <!-- DESCRIPTION -->
+                <p
+                    class="mt-6 text-gray-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+
+                    We design and build immersive escape rooms with advanced
+                    puzzle systems, cinematic storytelling, automation
+                    technology, and full construction management for modern
+                    entertainment venues.
+                </p>
+
+                <!-- BUTTONS -->
+                <div
+                    class="flex flex-col sm:flex-row gap-4 mt-8 justify-center lg:justify-start">
+
+                    <a href="#"
+                        class="px-7 py-4 rounded-xl bg-gradient-to-r from-violet-600 to-purple-700 hover:scale-105 transition-all duration-300 text-white font-semibold shadow-xl shadow-violet-800/40 text-center">
+
+                        Explore Projects
+                    </a>
+
+                    <a href="#"
+                        class="px-7 py-4 rounded-xl border border-violet-500/30 hover:bg-violet-500/10 transition-all duration-300 text-violet-200 font-semibold text-center">
+
+                        Start Your Build
+                    </a>
+
+                </div>
+
+                <!-- STATS -->
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10 max-w-2xl mx-auto lg:mx-0">
+
+                    <div
+                        class="bg-white/5 border border-white/10 backdrop-blur-lg rounded-2xl p-5">
+
+                        <h3 class="text-2xl sm:text-3xl font-bold text-violet-400">
+                            120+
+                        </h3>
+
+                        <p class="text-gray-400 text-sm mt-1">
+                            Rooms Built
+                        </p>
+
+                    </div>
+
+                    <div
+                        class="bg-white/5 border border-white/10 backdrop-blur-lg rounded-2xl p-5">
+
+                        <h3 class="text-2xl sm:text-3xl font-bold text-violet-400">
+                            40+
+                        </h3>
+
+                        <p class="text-gray-400 text-sm mt-1">
+                            Clients
+                        </p>
+
+                    </div>
+
+                    <div
+                        class="bg-white/5 border border-white/10 backdrop-blur-lg rounded-2xl p-5">
+
+                        <h3 class="text-2xl sm:text-3xl font-bold text-violet-400">
+                            15+
+                        </h3>
+
+                        <p class="text-gray-400 text-sm mt-1">
+                            Countries
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="relative flex justify-center order-1 lg:order-2">
+
+                <!-- MAIN CARD -->
+                <div
+                    class="relative w-full max-w-md sm:max-w-lg lg:max-w-xl bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[30px] sm:rounded-[35px] p-4 sm:p-6 shadow-2xl">
+
+                    <!-- TOP BAR -->
+                    <div class="flex items-center justify-between mb-6">
+
+                        <div class="flex gap-2">
+
+                            <span class="w-3 h-3 rounded-full bg-red-500"></span>
+
+                            <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+
+                            <span class="w-3 h-3 rounded-full bg-green-500"></span>
+
+                        </div>
+
+                        <div
+                            class="px-3 py-1 rounded-full bg-violet-500/20 text-violet-300 text-xs sm:text-sm">
+
+                            LIVE PROJECT
+                        </div>
+
+                    </div>
+
+                    <!-- IMAGE -->
+                    <div
+                        class="relative rounded-3xl overflow-hidden border border-violet-500/20">
+
+                        <img
+                            src="images/bg1.avif"
+                            alt="Escape Room"
+                            class="w-full h-[280px] sm:h-[380px] md:h-[450px] object-cover">
+
+                        <!-- OVERLAY -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-[#0F0B1A] via-transparent to-transparent">
+                        </div>
+
+                        <!-- FLOATING CARD -->
+                        <div
+                            class="absolute top-4 left-4 bg-[#1B132E]/90 border border-violet-500/20 backdrop-blur-lg rounded-2xl px-4 py-3">
+
+                            <p class="text-gray-400 text-xs sm:text-sm">
+                                Puzzle Systems
+                            </p>
+
+                            <h4 class="text-white font-bold text-base sm:text-lg">
+                                24 Active
+                            </h4>
+
+                        </div>
+
+                        <!-- FLOATING CARD -->
+                        <div
+                            class="absolute bottom-4 right-4 bg-[#1B132E]/90 border border-violet-500/20 backdrop-blur-lg rounded-2xl px-4 py-3">
+
+                            <p class="text-gray-400 text-xs sm:text-sm">
+                                Build Progress
+                            </p>
+
+                            <h4 class="text-violet-400 font-bold text-base sm:text-lg">
+                                85%
+                            </h4>
+
+                        </div>
+
+                    </div>
+
+                    <!-- BOTTOM INFO -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+
+                        <div
+                            class="bg-[#1A1427] border border-violet-500/10 rounded-2xl p-4">
+
+                            <p class="text-gray-400 text-sm">
+                                Theme
+                            </p>
+
+                            <h4 class="text-white font-semibold mt-1 text-sm sm:text-base">
+                                Mystery Laboratory
+                            </h4>
+
+                        </div>
+
+                        <div
+                            class="bg-[#1A1427] border border-violet-500/10 rounded-2xl p-4">
+
+                            <p class="text-gray-400 text-sm">
+                                Automation
+                            </p>
+
+                            <h4 class="text-white font-semibold mt-1 text-sm sm:text-base">
+                                Smart Integrated
+                            </h4>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- GLOW -->
+                <div
+                    class="absolute -z-10 w-72 sm:w-96 h-72 sm:h-96 bg-violet-600/30 blur-[120px] rounded-full">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- SECTION1 -->
+<!-- SERVICES SECTION -->
+<section class="relative bg-white py-20 sm:py-24 overflow-hidden">
+
+    <!-- BACKGROUND -->
+    <div class="absolute top-0 right-0 w-72 sm:w-96 h-72 sm:h-96 bg-violet-100 blur-[120px] rounded-full"></div>
+
+    <div class="absolute bottom-0 left-0 w-72 sm:w-96 h-72 sm:h-96 bg-purple-100 blur-[120px] rounded-full"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- SECTION TITLE -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+
+            <span
+                class="inline-block px-4 py-2 rounded-full bg-violet-100 border border-violet-200 text-violet-700 text-sm font-semibold mb-5">
+
+                OUR SERVICES
+            </span>
+
+            <h2
+                class="text-4xl sm:text-5xl font-black text-gray-900 leading-tight">
+
+                Complete Escape Room
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-600">
+                    Design & Build
+                </span>
+                Solutions
+            </h2>
+
+            <p
+                class="mt-6 text-gray-600 text-base sm:text-lg leading-relaxed">
+
+                We create immersive escape room environments with cinematic
+                storytelling, puzzle systems, automation technology, and
+                professional project execution.
+            </p>
+
+        </div>
+
+        <!-- SERVICES GRID -->
+        <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+            <!-- CARD -->
+            <div
+                class="group bg-white border border-gray-200 rounded-3xl p-7 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+
+                <div
+                    class="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-600 to-purple-600 flex items-center justify-center text-white text-2xl mb-6 shadow-lg">
+
+                    <i class="bi bi-puzzle-fill"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                    Puzzle Engineering
+                </h3>
+
+                <p class="text-gray-600 leading-relaxed">
+                    Smart puzzle systems with hidden triggers, logic mechanisms,
+                    interactive gameplay, and immersive player engagement.
+                </p>
+
+            </div>
+
+            <!-- CARD -->
+            <div
+                class="group bg-white border border-gray-200 rounded-3xl p-7 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+
+                <div
+                    class="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-600 to-purple-600 flex items-center justify-center text-white text-2xl mb-6 shadow-lg">
+
+                    <i class="bi bi-brush-fill"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                    Theme Design
+                </h3>
+
+                <p class="text-gray-600 leading-relaxed">
+                    Smart puzzle systems with hidden triggers, logic mechanisms,
+                    interactive gameplay, and immersive player engagement.
+                </p>
+
+            </div>
+
+            <!-- CARD -->
+            <div
+                class="group bg-white border border-gray-200 rounded-3xl p-7 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+
+                <div
+                    class="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-600 to-purple-600 flex items-center justify-center text-white text-2xl mb-6 shadow-lg">
+
+                    <i class="bi bi-cpu-fill"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                    Automation
+                </h3>
+
+                <p class="text-gray-600 leading-relaxed">
+                    Smart puzzle systems with hidden triggers, logic mechanisms,
+                    interactive gameplay, and immersive player engagement.
+                </p>
+
+            </div>
+
+            <!-- CARD -->
+            <div
+                class="group bg-white border border-gray-200 rounded-3xl p-7 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+
+                <div
+                    class="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-600 to-purple-600 flex items-center justify-center text-white text-2xl mb-6 shadow-lg">
+
+                    <i class="bi bi-building-fill-gear"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                    Construction 
+                </h3>
+
+                <p class="text-gray-600 leading-relaxed">
+                   Smart puzzle systems with hidden triggers, logic mechanisms,
+                    interactive gameplay, and immersive player engagement.
+                </p>
+
+            </div>
+
+            <!-- CARD -->
+            <div
+                class="group bg-white border border-gray-200 rounded-3xl p-7 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+
+                <div
+                    class="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-600 to-purple-600 flex items-center justify-center text-white text-2xl mb-6 shadow-lg">
+
+                    <i class="bi bi-layout-text-window-reverse"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                    Blueprint Planning
+                </h3>
+
+                <p class="text-gray-600 leading-relaxed">
+                  Smart puzzle systems with hidden triggers, logic mechanisms,
+                    interactive gameplay, and immersive player engagement.
+                </p>
+
+            </div>
+
+            <!-- CARD -->
+            <div
+                class="group bg-white border border-gray-200 rounded-3xl p-7 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+
+                <div
+                    class="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-600 to-purple-600 flex items-center justify-center text-white text-2xl mb-6 shadow-lg">
+
+                    <i class="bi bi-shield-lock-fill"></i>
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">
+                    Maintenance
+                </h3>
+
+                <p class="text-gray-600 leading-relaxed">
+                    Smart puzzle systems with hidden triggers, logic mechanisms,
+                    interactive gameplay, and immersive player engagement.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- SECTION2 -->
+
+<section class="relative bg-[#F8F7FF] py-20 sm:py-24 overflow-hidden">
+
+    <!-- BACKGROUND GLOW -->
+    <div class="absolute top-0 left-0 w-72 sm:w-96 h-72 sm:h-96 bg-violet-200 blur-[120px] rounded-full opacity-60"></div>
+
+    <div class="absolute bottom-0 right-0 w-72 sm:w-96 h-72 sm:h-96 bg-violet-200 blur-[120px] rounded-full opacity-60"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- SECTION HEADER -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+
+            <span
+                class="inline-block px-4 py-2 rounded-full bg-violet-100 border border-violet-200 text-violet-700 text-sm font-semibold mb-5">
+
+                FEATURED PROJECTS
+            </span>
+
+            <h2
+                class="text-4xl sm:text-5xl font-black text-gray-900 leading-tight">
+
+                Immersive Escape Room
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-600">
+                    Experiences
+                </span>
+            </h2>
+
+            <p
+                class="mt-6 text-gray-600 text-base sm:text-lg leading-relaxed">
+
+                Explore our latest escape room concepts featuring cinematic
+                themes, advanced puzzle systems, automation technology,
+                and interactive storytelling.
+            </p>
+
+        </div>
+
+        <!-- PROJECT GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+            <!-- CARD 1 -->
+            <div
+                class="group bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+
+                <!-- IMAGE -->
+                <div class="relative overflow-hidden">
+
+                    <img
+                        src="images/img1.jpg"
+                        alt="Escape Room"
+                        class="w-full h-72 object-cover group-hover:scale-110 transition duration-700">
+
+                    <!-- OVERLAY -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent">
+                    </div>
+
+                    <!-- BADGE -->
+                    <div
+                        class="absolute top-5 left-5 px-4 py-2 rounded-full bg-violet-600 text-white text-sm font-semibold shadow-lg">
+
+                        Horror Theme
+                    </div>
+
+                </div>
+
+                <!-- CONTENT -->
+                <div class="p-7">
+
+                    <div class="flex items-center gap-3 mb-4">
+
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-violet-100 flex items-center justify-center text-violet-700 text-xl">
+
+                            <i class="bi bi-door-open-fill"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900">
+                                The Haunted
+                            </h3>
+
+                            <p class="text-sm text-gray-500">
+                                Cinematic Horror Experience
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        A fully immersive haunted mansion with hidden pathways,
+                        motion-triggered effects, secret chambers, and smart
+                        puzzle automation.
+                    </p>
+
+                    <!-- FEATURES -->
+                    <div class="flex flex-wrap gap-3 mb-6">
+
+                        <span
+                            class="px-3 py-2 rounded-xl bg-violet-50 text-violet-700 text-sm font-medium">
+                            RFID Locks
+                        </span>
+
+                        <span
+                            class="px-3 py-2 rounded-xl bg-violet-50 text-violet-700 text-sm font-medium">
+                            Live Effects
+                        </span>
+
+                        <span
+                            class="px-3 py-2 rounded-xl bg-violet-50 text-violet-700 text-sm font-medium">
+                            Smart Lighting
+                        </span>
+
+                    </div>
+
+                    <!-- BUTTON -->
+                    <a href="#"
+                        class="inline-flex items-center gap-2 text-violet-700 font-semibold hover:gap-4 transition-all duration-300">
+
+                        View Case Study
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- CARD 2 -->
+            <div
+                class="group bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+
+                <!-- IMAGE -->
+                <div class="relative overflow-hidden">
+
+                    <img
+                        src="images/img2.jpg"
+                        alt="Escape Room"
+                        class="w-full h-72 object-cover group-hover:scale-110 transition duration-700">
+
+                    <!-- OVERLAY -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent">
+                    </div>
+
+                    <!-- BADGE -->
+                    <div
+                        class="absolute top-5 left-5 px-4 py-2 rounded-full bg-violet-600 text-white text-sm font-semibold shadow-lg">
+
+                        Sci-Fi Theme
+                    </div>
+
+                </div>
+
+                <!-- CONTENT -->
+                <div class="p-7">
+
+                    <div class="flex items-center gap-3 mb-4">
+
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-violet-100 flex items-center justify-center text-violet-700 text-xl">
+
+                            <i class="bi bi-cpu-fill"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900">
+                                Space Station X
+                            </h3>
+
+                            <p class="text-sm text-gray-500">
+                                Futuristic Adventure Room
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        A high-tech escape room featuring AI interactions,
+                        digital controls, laser puzzles, and immersive sci-fi
+                        mission gameplay.
+                    </p>
+
+                    <!-- FEATURES -->
+                    <div class="flex flex-wrap gap-3 mb-6">
+
+                        <span
+                            class="px-3 py-2 rounded-xl bg-violet-50 text-violet-700 text-sm font-medium">
+                            AI Systems
+                        </span>
+
+                        <span
+                            class="px-3 py-2 rounded-xl bg-violet-50 text-violet-700 text-sm font-medium">
+                            Laser Puzzles
+                        </span>
+
+                        <span
+                            class="px-3 py-2 rounded-xl bg-violet-50 text-violet-700 text-sm font-medium">
+                            Motion Sensors
+                        </span>
+
+                    </div>
+
+                    <!-- BUTTON -->
+                    <a href="#"
+                        class="inline-flex items-center gap-2 text-violet-700 font-semibold hover:gap-4 transition-all duration-300">
+
+                        View Case Study
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- CARD 3 -->
+            <div
+                class="group bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-200 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+
+                <!-- IMAGE -->
+                <div class="relative overflow-hidden">
+
+                    <img
+                        src="images/img3.webp"
+                        alt="Escape Room"
+                        class="w-full h-72 object-cover group-hover:scale-110 transition duration-700">
+
+                    <!-- OVERLAY -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent">
+                    </div>
+
+                    <!-- BADGE -->
+                    <div
+                        class="absolute top-5 left-5 px-4 py-2 rounded-full bg-violet-600 text-white text-sm font-semibold shadow-lg">
+
+                        Mystery Theme
+                    </div>
+
+                </div>
+
+                <!-- CONTENT -->
+                <div class="p-7">
+
+                    <div class="flex items-center gap-3 mb-4">
+
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-violet-100 flex items-center justify-center text-violet-700 text-xl">
+
+                            <i class="bi bi-search-heart-fill"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900">
+                                The Secret Archive
+                            </h3>
+
+                            <p class="text-sm text-gray-500">
+                                Detective Investigation Room
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Players uncover hidden clues, decode ancient secrets,
+                        and solve mystery-driven challenges in a cinematic
+                        investigation environment.
+                    </p>
+
+                    <!-- FEATURES -->
+                    <div class="flex flex-wrap gap-3 mb-6">
+
+                        <span
+                            class="px-3 py-2 rounded-xl bg-violet-50 text-violet-700 text-sm font-medium">
+                            Hidden Doors
+                        </span>
+
+                        <span
+                            class="px-3 py-2 rounded-xl bg-violet-50 text-violet-700 text-sm font-medium">
+                            Sound FX
+                        </span>
+
+                        <span
+                            class="px-3 py-2 rounded-xl bg-violet-50 text-violet-700 text-sm font-medium">
+                            Puzzle Trails
+                        </span>
+
+                    </div>
+
+                    <!-- BUTTON -->
+                    <a href="#"
+                        class="inline-flex items-center gap-2 text-violet-700 font-semibold hover:gap-4 transition-all duration-300">
+
+                        View Case Study
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- SECCTION3 -->
+ <!-- WHY CHOOSE US SECTION -->
+<section class="relative bg-white py-20 sm:py-24 overflow-hidden">
+
+    <!-- BACKGROUND GLOW -->
+    <div class="absolute top-0 right-0 w-72 sm:w-96 h-72 sm:h-96 bg-violet-100 blur-[120px] rounded-full opacity-70"></div>
+
+    <div class="absolute bottom-0 left-0 w-72 sm:w-96 h-72 sm:h-96 bg-purple-100 blur-[120px] rounded-full opacity-70"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+            <!-- LEFT CONTENT -->
+            <div>
+
+                <!-- BADGE -->
+                <span
+                    class="inline-block px-4 py-2 rounded-full bg-violet-100 border border-violet-200 text-violet-700 text-sm font-semibold mb-6">
+
+                    WHY CHOOSE US
+                </span>
+
+                <!-- HEADING -->
+                <h2
+                    class="text-4xl sm:text-5xl font-black text-gray-900 leading-tight mb-6">
+
+                    Designing
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-600">
+                        Immersive Worlds
+                    </span>
+                    Beyond Reality
+                </h2>
+
+                <!-- DESCRIPTION -->
+                <p
+                    class="text-gray-600 text-base sm:text-lg leading-relaxed mb-10">
+
+                    We combine cinematic storytelling, puzzle engineering,
+                    automation systems, and professional construction planning
+                    to build unforgettable escape room experiences for modern
+                    entertainment venues.
+                </p>
+
+                <!-- FEATURES -->
+                <div class="space-y-6">
+
+                    <!-- ITEM -->
+                    <div class="flex items-start gap-5">
+
+                        <div
+                            class="min-w-[60px] h-[60px] rounded-2xl bg-violet-100 flex items-center justify-center text-violet-700 text-2xl shadow-md">
+
+                            <i class="bi bi-lightbulb-fill"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">
+                                Creative Concept Development
+                            </h3>
+
+                            <p class="text-gray-600 leading-relaxed">
+                                Unique story-driven room concepts crafted to
+                                maximize player immersion and engagement.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- ITEM -->
+                    <div class="flex items-start gap-5">
+
+                        <div
+                            class="min-w-[60px] h-[60px] rounded-2xl bg-violet-100 flex items-center justify-center text-violet-700 text-2xl shadow-md">
+
+                            <i class="bi bi-cpu-fill"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">
+                                Advanced Automation Technology
+                            </h3>
+
+                            <p class="text-gray-600 leading-relaxed">
+                                Integrated smart systems including sensors,
+                                RFID controls, hidden mechanisms, and lighting.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- ITEM -->
+                    <div class="flex items-start gap-5">
+
+                        <div
+                            class="min-w-[60px] h-[60px] rounded-2xl bg-violet-100 flex items-center justify-center text-violet-700 text-2xl shadow-md">
+
+                            <i class="bi bi-buildings-fill"></i>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">
+                                End-to-End Project Management
+                            </h3>
+
+                            <p class="text-gray-600 leading-relaxed">
+                                From blueprint planning to installation and
+                                post-launch maintenance support.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT IMAGE SECTION -->
+            <div class="relative flex justify-center">
+
+                <!-- MAIN IMAGE CARD -->
+                <div
+                    class="relative w-full max-w-xl rounded-[35px] overflow-hidden shadow-2xl border border-gray-200">
+
+                    <img
+                        src="images/img4.jpg"
+                        alt="Escape Room Design"
+                        class="w-full h-[500px] sm:h-[600px] object-cover">
+
+                    <!-- OVERLAY -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent">
+                    </div>
+
+                    <!-- FLOATING CARD -->
+                    <div
+                        class="absolute bottom-6 left-6 right-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6">
+
+                        <div class="flex items-center justify-between">
+
+                            <div>
+                                <p class="text-gray-200 text-sm mb-1">
+                                    Active Build Progress
+                                </p>
+
+                                <h3 class="text-3xl font-bold text-white">
+                                    85%
+                                </h3>
+                            </div>
+
+                            <div
+                                class="w-16 h-16 rounded-2xl bg-violet-600 flex items-center justify-center text-white text-2xl shadow-lg">
+
+                                <i class="bi bi-bar-chart-fill"></i>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- SMALL FLOATING CARD -->
+                <div
+                    class="absolute -top-6 -left-4 sm:left-0 bg-white rounded-3xl shadow-xl border border-gray-200 p-5 hidden sm:block">
+
+                    <div class="flex items-center gap-4">
+
+                        <div
+                            class="w-14 h-14 rounded-2xl bg-violet-100 flex items-center justify-center text-violet-700 text-2xl">
+
+                            <i class="bi bi-trophy-fill"></i>
+                        </div>
+
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-900">
+                                120+ Rooms
+                            </h4>
+
+                            <p class="text-gray-500 text-sm">
+                                Successfully Delivered
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- SECTION4 -->
+<section class="relative bg-[#F8F7FF] py-20 sm:py-24 overflow-hidden">
+
+    <!-- BACKGROUND GLOW -->
+    <div
+        class="absolute top-0 left-0 w-72 sm:w-96 h-72 sm:h-96 bg-violet-200 blur-[120px] rounded-full opacity-60">
+    </div>
+
+    <div
+        class="absolute bottom-0 right-0 w-72 sm:w-96 h-72 sm:h-96 bg-purple-200 blur-[120px] rounded-full opacity-60">
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- SECTION HEADER -->
+        <div class="text-center max-w-3xl mx-auto mb-20">
+
+            <span
+                class="inline-block px-4 py-2 rounded-full bg-violet-100 border border-violet-200 text-violet-700 text-sm font-semibold mb-5">
+
+                OUR PROCESS
+            </span>
+
+            <h2
+                class="text-4xl sm:text-5xl font-black text-gray-900 leading-tight">
+
+                How We Build
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-600">
+
+                    Escape Room Experiences
+                </span>
+            </h2>
+
+            <p
+                class="mt-6 text-gray-600 text-base sm:text-lg leading-relaxed">
+
+                Our workflow combines cinematic storytelling, technical
+                engineering, automation systems, and professional construction
+                planning to create unforgettable immersive escape rooms.
+            </p>
+
+        </div>
+
+        <!-- PROCESS GRID -->
+<div
+    class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-y-16 gap-x-8 place-items-center">
+
+    <!-- STEP 1 -->
+    <div
+        class="relative group bg-white rounded-full border border-gray-200 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 w-[270px] h-[270px] sm:w-[280px] sm:h-[280px] flex-shrink-0 flex flex-col items-center justify-center text-center p-6 mx-auto">
+
+        <!-- NUMBER -->
+        <div
+            class="absolute top-5 right-5 w-12 h-12 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 text-white flex items-center justify-center font-bold text-lg shadow-lg">
+
+            01
+        </div>
+
+        <!-- ICON -->
+        <div
+            class="w-20 h-20 rounded-full bg-violet-100 text-violet-700 flex items-center justify-center text-4xl mb-6">
+
+            <i class="bi bi-lightbulb-fill"></i>
+        </div>
+
+        <!-- TITLE -->
+        <h3 class="text-2xl font-bold text-gray-900 mb-3">
+            Concept Planning
+        </h3>
+
+        <!-- TEXT -->
+        <p class="text-gray-600 text-sm leading-relaxed">
+             RFID systems, sensors, smart locks, lighting effects, and
+            advanced automation integration.
+        </p>
+
+    </div>
+
+    <!-- STEP 2 -->
+    <div
+        class="relative group bg-white rounded-full border border-gray-200 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 w-[270px] h-[270px] sm:w-[280px] sm:h-[280px] flex-shrink-0 flex flex-col items-center justify-center text-center p-6 mx-auto">
+
+        <!-- NUMBER -->
+        <div
+            class="absolute top-5 right-5 w-12 h-12 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 text-white flex items-center justify-center font-bold text-lg shadow-lg">
+
+            02
+        </div>
+
+        <!-- ICON -->
+        <div
+            class="w-20 h-20 rounded-full bg-violet-100 text-violet-700 flex items-center justify-center text-4xl mb-6">
+
+            <i class="bi bi-layout-text-window-reverse"></i>
+        </div>
+
+        <!-- TITLE -->
+        <h3 class="text-2xl font-bold text-gray-900 mb-3">
+            Blueprint Design
+        </h3>
+
+        <!-- TEXT -->
+        <p class="text-gray-600 text-sm leading-relaxed">
+             RFID systems, sensors, smart locks, lighting effects, and
+            advanced automation integration.
+        </p>
+
+    </div>
+
+    <!-- STEP 3 -->
+    <div
+        class="relative group bg-white rounded-full border border-gray-200 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 w-[270px] h-[270px] sm:w-[280px] sm:h-[280px] flex-shrink-0 flex flex-col items-center justify-center text-center p-6 mx-auto">
+
+        <!-- NUMBER -->
+        <div
+            class="absolute top-5 right-5 w-12 h-12 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 text-white flex items-center justify-center font-bold text-lg shadow-lg">
+
+            03
+        </div>
+
+        <!-- ICON -->
+        <div
+            class="w-20 h-20 rounded-full bg-violet-100 text-violet-700 flex items-center justify-center text-4xl mb-6">
+
+            <i class="bi bi-cpu-fill"></i>
+        </div>
+
+        <!-- TITLE -->
+        <h3 class="text-2xl font-bold text-gray-900 mb-3">
+           Automation
+        </h3>
+
+        <!-- TEXT -->
+        <p class="text-gray-600 text-sm leading-relaxed">
+            RFID systems, sensors, smart locks, lighting effects, and
+            advanced automation integration.
+        </p>
+
+    </div>
+
+    <!-- STEP 4 -->
+    <div
+        class="relative group bg-white rounded-full border border-gray-200 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 w-[270px] h-[270px] sm:w-[280px] sm:h-[280px] flex-shrink-0 flex flex-col items-center justify-center text-center p-6 mx-auto">
+
+        <!-- NUMBER -->
+        <div
+            class="absolute top-5 right-5 w-12 h-12 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 text-white flex items-center justify-center font-bold text-lg shadow-lg">
+
+            04
+        </div>
+
+        <!-- ICON -->
+        <div
+            class="w-20 h-20 rounded-full bg-violet-100 text-violet-700 flex items-center justify-center text-4xl mb-6">
+
+            <i class="bi bi-buildings-fill"></i>
+        </div>
+
+        <!-- TITLE -->
+        <h3 class="text-2xl font-bold text-gray-900 mb-3">
+            Installation
+        </h3>
+
+        <!-- TEXT -->
+        <p class="text-gray-600 text-sm leading-relaxed">
+             RFID systems, sensors, smart locks, lighting effects, and
+            advanced automation integration.
+        </p>
+
+    </div>
+
+</div>
+
+    </div>
+
+</section>
+<!-- SECTION5 -->
+ <!-- TESTIMONIALS SECTION -->
+<section class="relative bg-[#F8F7FF] py-20 sm:py-24 overflow-hidden">
+
+    <!-- BACKGROUND GLOW -->
+    <div
+        class="absolute top-0 left-0 w-72 sm:w-96 h-72 sm:h-96 bg-violet-200 blur-[120px] rounded-full opacity-60">
+    </div>
+
+    <div
+        class="absolute bottom-0 right-0 w-72 sm:w-96 h-72 sm:h-96 bg-purple-200 blur-[120px] rounded-full opacity-60">
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- SECTION HEADER -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+
+            <span
+                class="inline-block px-4 py-2 rounded-full bg-violet-100 border border-violet-200 text-violet-700 text-sm font-semibold mb-5">
+
+                TESTIMONIALS
+            </span>
+
+            <h2
+                class="text-4xl sm:text-5xl font-black text-gray-900 leading-tight">
+
+                What Our
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-600">
+
+                    Clients Say
+                </span>
+            </h2>
+
+            <p
+                class="mt-6 text-gray-600 text-base sm:text-lg leading-relaxed">
+
+                Trusted by entertainment venues, gaming hubs, and immersive
+                experience creators around the world.
+            </p>
+
+        </div>
+
+        <!-- TESTIMONIAL GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+            <!-- CARD 1 -->
+            <div
+                class="relative bg-white rounded-[35px] p-8 border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+
+                <!-- QUOTE ICON -->
+                <div
+                    class="w-16 h-16 rounded-2xl bg-violet-100 text-violet-700 flex items-center justify-center text-3xl mb-6">
+
+                    <i class="bi bi-quote"></i>
+                </div>
+
+                <!-- REVIEW -->
+                <p class="text-gray-600 leading-relaxed text-lg mb-8">
+                    “The team transformed our vision into a cinematic escape
+                    room experience. The automation systems and puzzle quality
+                    exceeded all expectations.”
+                </p>
+
+                <!-- STARS -->
+                <div class="flex items-center gap-1 text-yellow-400 mb-6">
+
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+
+                </div>
+
+                <!-- CLIENT -->
+                <div class="flex items-center gap-4">
+
+                    <img
+                        src="images/team1.avif"
+                        alt="Client"
+                        class="w-14 h-14 rounded-full object-cover border-2 border-violet-200">
+
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-900">
+                            Daniel Carter
+                        </h4>
+
+                        <p class="text-gray-500 text-sm">
+                            Entertainment Venue Owner
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD 2 -->
+            <div
+                class="relative bg-white rounded-[35px] p-8 border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+
+                <!-- QUOTE ICON -->
+                <div
+                    class="w-16 h-16 rounded-2xl bg-violet-100 text-violet-700 flex items-center justify-center text-3xl mb-6">
+
+                    <i class="bi bi-quote"></i>
+                </div>
+
+                <!-- REVIEW -->
+                <p class="text-gray-600 leading-relaxed text-lg mb-8">
+                    “Their project management dashboard made the entire build
+                    process transparent and efficient. Every milestone was
+                    professionally executed.”
+                </p>
+
+                <!-- STARS -->
+                <div class="flex items-center gap-1 text-yellow-400 mb-6">
+
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+
+                </div>
+
+                <!-- CLIENT -->
+                <div class="flex items-center gap-4">
+
+                    <img
+                        src="images/team2.avif"
+                        alt="Client"
+                        class="w-14 h-14 rounded-full object-cover border-2 border-violet-200">
+
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-900">
+                            Sophia Bennett
+                        </h4>
+
+                        <p class="text-gray-500 text-sm">
+                            Escape Room Franchise Director
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD 3 -->
+            <div
+                class="relative bg-white rounded-[35px] p-8 border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+
+                <!-- QUOTE ICON -->
+                <div
+                    class="w-16 h-16 rounded-2xl bg-violet-100 text-violet-700 flex items-center justify-center text-3xl mb-6">
+
+                    <i class="bi bi-quote"></i>
+                </div>
+
+                <!-- REVIEW -->
+                <p class="text-gray-600 leading-relaxed text-lg mb-8">
+                    “The immersive storytelling, hidden mechanisms, and
+                    intelligent puzzle flow created one of the best escape room
+                    experiences in our city.”
+                </p>
+
+                <!-- STARS -->
+                <div class="flex items-center gap-1 text-yellow-400 mb-6">
+
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+
+                </div>
+
+                <!-- CLIENT -->
+                <div class="flex items-center gap-4">
+
+                    <img
+                        src="images/team3.avif"
+                        alt="Client"
+                        class="w-14 h-14 rounded-full object-cover border-2 border-violet-200">
+
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-900">
+                            Michael Ross
+                        </h4>
+
+                        <p class="text-gray-500 text-sm">
+                            Adventure Gaming Studio
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- SECTION6 -->
+ <!-- CTA SECTION -->
+<section class="relative py-20 sm:py-24 overflow-hidden">
+
+    <!-- BACKGROUND -->
+    <div
+        class="absolute inset-0 bg-gradient-to-r from-violet-700 via-purple-700 to-indigo-700">
+    </div>
+
+    <!-- GLOW EFFECTS -->
+    <div
+        class="absolute top-0 left-0 w-80 h-80 bg-violet-400 blur-[120px] opacity-30 rounded-full">
+    </div>
+
+    <div
+        class="absolute bottom-0 right-0 w-80 h-80 bg-purple-400 blur-[120px] opacity-30 rounded-full">
+    </div>
+
+    <!-- PATTERN -->
+    <div
+        class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,white_1px,transparent_1px)] bg-[length:22px_22px]">
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- CTA BOX -->
+        <div
+            class="relative bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[40px] p-10 sm:p-16 overflow-hidden shadow-2xl">
+
+            <!-- SMALL GLOW -->
+            <div
+                class="absolute -top-20 -right-20 w-60 h-60 bg-white/10 blur-[100px] rounded-full">
+            </div>
+
+            <div
+                class="grid lg:grid-cols-2 gap-14 items-center">
+
+                <!-- LEFT CONTENT -->
+                <div>
+
+                    <!-- BADGE -->
+                    <span
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-violet-100 text-sm font-semibold mb-6">
+
+                        <i class="bi bi-stars"></i>
+                        START YOUR PROJECT
+                    </span>
+
+                    <!-- TITLE -->
+                    <h2
+                        class="text-4xl sm:text-5xl font-black text-white leading-tight mb-6">
+
+                        Ready To Build Your
+                        <span class="text-violet-200">
+                            Next Escape Room Experience?
+                        </span>
+                    </h2>
+
+                    <!-- DESCRIPTION -->
+                    <p
+                        class="text-violet-100 text-base sm:text-lg leading-relaxed mb-10 max-w-2xl">
+
+                        From immersive storytelling and puzzle automation to
+                        full-scale construction management, we create unforgettable
+                        escape room experiences tailored for modern entertainment
+                        venues.
+                    </p>
+
+                    <!-- BUTTONS -->
+                    <div class="flex flex-wrap gap-4">
+
+                        <!-- PRIMARY BUTTON -->
+                        <a href="#"
+                            class="px-8 py-4 rounded-2xl bg-white text-violet-700 font-bold shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-3">
+
+                            Start Your Project
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                        <!-- SECONDARY BUTTON -->
+                        <a href="#"
+                            class="px-8 py-4 rounded-2xl border border-white/30 text-white font-semibold hover:bg-white/10 transition-all duration-300 flex items-center gap-3">
+
+                            Book Consultation
+                            <i class="bi bi-calendar-check"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- RIGHT SIDE -->
+                <div class="relative">
+
+                    <!-- MAIN CARD -->
+                    <div
+                        class="bg-white/10 border border-white/20 rounded-[35px] p-8 backdrop-blur-xl shadow-2xl">
+
+                        <!-- TOP -->
+                        <div class="flex items-center justify-between mb-8">
+
+                            <div>
+                                <p class="text-violet-100 text-sm mb-2">
+                                    Active Project Build
+                                </p>
+
+                                <h3
+                                    class="text-4xl font-black text-white">
+                                    85%
+                                </h3>
+                            </div>
+
+                            <div
+                                class="w-20 h-20 rounded-3xl bg-white/10 flex items-center justify-center text-white text-4xl border border-white/20">
+
+                                <i class="bi bi-controller"></i>
+                            </div>
+
+                        </div>
+
+                        <!-- PROGRESS -->
+                        <div class="mb-8">
+
+                            <div
+                                class="flex items-center justify-between mb-3">
+
+                                <span
+                                    class="text-violet-100 font-medium">
+                                    Installation Progress
+                                </span>
+
+                                <span
+                                    class="text-white font-bold">
+                                    85%
+                                </span>
+
+                            </div>
+
+                            <div
+                                class="w-full h-4 rounded-full bg-white/10 overflow-hidden">
+
+                                <div
+                                    class="h-full w-[85%] rounded-full bg-gradient-to-r from-violet-300 to-white">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- FEATURES -->
+                        <div class="space-y-4">
+
+                            <!-- ITEM -->
+                            <div
+                                class="flex items-center gap-4 bg-white/5 rounded-2xl p-4 border border-white/10">
+
+                                <div
+                                    class="w-12 h-12 rounded-2xl bg-white/10 text-white flex items-center justify-center text-xl">
+
+                                    <i class="bi bi-check-circle-fill"></i>
+                                </div>
+
+                                <div>
+                                    <h4
+                                        class="text-white font-semibold">
+                                        Puzzle Automation Ready
+                                    </h4>
+
+                                    <p
+                                        class="text-violet-100 text-sm">
+                                        Smart systems installed successfully
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            <!-- ITEM -->
+                            <div
+                                class="flex items-center gap-4 bg-white/5 rounded-2xl p-4 border border-white/10">
+
+                                <div
+                                    class="w-12 h-12 rounded-2xl bg-white/10 text-white flex items-center justify-center text-xl">
+
+                                    <i class="bi bi-lightning-charge-fill"></i>
+                                </div>
+
+                                <div>
+                                    <h4
+                                        class="text-white font-semibold">
+                                        Immersive Effects Enabled
+                                    </h4>
+
+                                    <p
+                                        class="text-violet-100 text-sm">
+                                        Lighting, sound & motion calibrated
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+  <!-- FOOTER -->
+  <div id="footer"></div>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'ui-sans-serif', 'system-ui'],
+          },
+        },
+      },
+    }
+  </script>
+  <script src="navbar.js"></script>
+  <script src="footer.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Hidden Logic</title>
+ <link rel="icon" href="images/logo.jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#7C3AED',
+                        accent: '#A78BFA',
+                        darkBg: '#0B0B14',
+                        darkCard: '#121026',
+                        darkBox: '#1A1630'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer components {
+            .nav-link {
+                @apply flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 transition-all duration-200 cursor-pointer hover:bg-brand/10 hover:text-brand font-medium;
+            }
+            .nav-link.active {
+                @apply bg-brand text-white shadow-lg shadow-brand/20;
+            }
+            .stat-card {
+                @apply p-6 rounded-2xl bg-white dark:bg-darkCard border border-slate-200 dark:border-white/5 shadow-sm;
+            }
+            .info-box {
+                @apply p-5 rounded-2xl bg-white dark:bg-darkBox border border-slate-100 dark:border-white/5 transition-transform hover:scale-[1.01];
+            }
+            .btn-primary {
+                @apply bg-brand text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:opacity-90 transition-opacity flex items-center gap-2 shadow-md;
+            }
+            .btn-outline {
+                @apply border border-brand/40 text-brand px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-brand/10 transition-colors flex items-center gap-2;
+            }
+            .table-container {
+                @apply w-full overflow-x-auto bg-white dark:bg-darkCard rounded-2xl border border-slate-200 dark:border-white/5 shadow-sm mt-4;
+            }
+            .data-table {
+                @apply w-full text-left text-sm whitespace-nowrap;
+            }
+            .data-table th {
+                @apply p-4 bg-slate-50 dark:bg-darkBox text-slate-500 font-semibold border-b border-slate-200 dark:border-white/5;
+            }
+            .data-table td {
+                @apply p-4 border-b border-slate-100 dark:border-white/5 text-slate-700 dark:text-slate-300;
+            }
+            .badge {
+                @apply px-3 py-1 rounded-full text-xs font-bold inline-flex items-center gap-1;
+            }
+            .progress-ring {
+                transition: stroke-dashoffset 0.5s;
+            }
+        }
+
+        /* Global Typography Consistency Overrides */
+        h1, h2, h1 *, h2 * {
+            font-weight: 600 !important;
+        }
+        h3, h4, h5, h6, h3 *, h4 *, h5 *, h6 * {
+            font-weight: 500 !important;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-darkBg text-slate-900 dark:text-slate-100 font-sans antialiased">
+
+    <div class="flex h-screen overflow-hidden relative">
+        <!-- Mobile Overlay -->
+        <div id="mobileOverlay" class="fixed inset-0 bg-black/60 z-20 hidden md:hidden backdrop-blur-sm transition-opacity" onclick="toggleSidebar()"></div>
+
+        <!-- Sidebar Navigation (User Version) -->
+        <aside id="sidebar" class="absolute md:relative z-30 w-72 h-full bg-white dark:bg-darkCard border-r border-slate-200 dark:border-white/10 flex flex-col transition-transform duration-300 -translate-x-full md:translate-x-0">
+            <div class="p-8 flex justify-between items-center">
+                <div>
+                   <h1 class="text-2xl text-slate-900 font-bold dark:text-white">
+          <a href="index.html">
+            HIDDEN <span class="text-[#8B5CF6] font-bold dark:text-white">LOGIC</span>
+          </a>
+        </h1>
+                </div>
+                <button class="md:hidden text-2xl text-slate-400" onclick="toggleSidebar()">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <nav class="flex-1 px-4 space-y-1 overflow-y-auto flex flex-col pb-6">
+                <a onclick="show('dashboard', this)" class="nav-link active">
+                    <i class="bi bi-house-door-fill"></i> My Dashboard
+                </a>
+                <a onclick="show('my-bookings', this)" class="nav-link">
+                    <i class="bi bi-calendar-check-fill"></i> My Bookings
+                </a>
+                <a onclick="show('explore', this)" class="nav-link">
+                    <i class="bi bi-compass-fill"></i> Explore Rooms
+                </a>
+                <a onclick="show('achievements', this)" class="nav-link">
+                    <i class="bi bi-trophy-fill"></i> Achievements
+                </a>
+                <a onclick="show('rewards', this)" class="nav-link">
+                    <i class="bi bi-gift-fill"></i> Loyalty Rewards
+                </a>
+                <a onclick="show('profile', this)" class="nav-link">
+                    <i class="bi bi-person-circle"></i> My Profile
+                </a>
+
+                <div class="mt-auto pt-4 border-t border-slate-100 dark:border-white/5">
+                    <a href="login.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-red-500 transition-all duration-200 cursor-pointer hover:bg-red-500/10 font-medium">
+                        <i class="bi bi-box-arrow-left"></i> Log Out
+                    </a>
+                </div>
+            </nav>
+
+            <div class="md:hidden p-6 mt-auto border-t border-slate-100 dark:border-white/5 space-y-3">
+                <button onclick="toggleTheme()" class="w-full flex items-center justify-center gap-2 bg-brand/10 text-brand py-3 rounded-xl text-sm font-semibold hover:bg-brand hover:text-white transition-colors">
+                    <i class="bi bi-moon-stars"></i> Toggle Theme
+                </button>
+                <button onclick="toggleRTL()" class="w-full flex items-center justify-center gap-2 bg-slate-100 dark:bg-slate-800 py-3 rounded-xl text-sm font-semibold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                    <i class="bi bi-arrow-left-right"></i> RTL Toggle
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col min-w-0 overflow-hidden relative">
+            <!-- Header -->
+            <header class="h-20 bg-white dark:bg-darkCard border-b border-slate-200 dark:border-white/10 px-4 sm:px-6 lg:px-8 flex justify-between items-center shrink-0 z-10">
+                <div class="flex items-center gap-4 min-w-0">
+                    <button class="md:hidden text-2xl dark:text-white shrink-0" onclick="toggleSidebar()">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <h2 id="title" class="text-lg sm:text-xl font-bold dark:text-white uppercase tracking-wide truncate">MY DASHBOARD</h2>
+                </div>
+
+                <div class="flex items-center gap-4 sm:gap-6 shrink-0">
+                    <div class="hidden md:flex items-center gap-3 border-r border-slate-200 dark:border-white/10 pr-6">
+                        <button onclick="toggleTheme()" class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-darkBox text-slate-600 dark:text-slate-300 hover:text-brand transition-colors" title="Toggle Theme">
+                            <i class="bi bi-moon-stars-fill"></i>
+                        </button>
+                        <button onclick="toggleRTL()" class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-darkBox text-slate-600 dark:text-slate-300 hover:text-brand transition-colors" title="Toggle RTL">
+                            <i class="bi bi-arrow-left-right"></i>
+                        </button>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="text-right hidden sm:block">
+                            <p class="text-sm font-bold dark:text-white leading-none">Alex Mercer</p>
+                            <span class="text-[11px] text-brand font-medium uppercase">Explorer Level 7</span>
+                        </div>
+                        <img src="https://ui-avatars.com/api/?name=Alex+Mercer&background=7C3AED&color=fff&bold=true" 
+                             class="w-10 h-10 rounded-xl ring-2 ring-brand/20 cursor-pointer" alt="Profile">
+                    </div>
+                </div>
+            </header>
+
+            <main class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+                
+                <!-- ================= DASHBOARD (USER LANDING) ================= -->
+                <section id="dashboard" class="page-content space-y-6">
+                    <!-- Welcome Banner - Professional Icons -->
+                    <div class="bg-gradient-to-r from-brand/20 to-accent/10 rounded-2xl p-6 border border-brand/20 shadow-md">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                            <div>
+                                <h2 class="text-2xl font-bold flex items-center gap-2">
+                                    <i class="bi bi-emoji-smile text-brand text-3xl"></i> 
+                                    Welcome back, Alex!
+                                </h2>
+                                <p class="text-slate-400 text-sm mt-1 flex items-center gap-1">
+                                    <i class="bi bi-puzzle"></i> Your next adventure awaits. Ready to break the code?
+                                </p>
+                            </div>
+                            <a onclick="show('explore', document.querySelector('.nav-link[onclick*=\"explore\"]'))" class="btn-primary cursor-pointer">
+                                <i class="bi bi-plus-circle"></i> Book a New Room
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Stats Cards (User version) -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="stat-card">
+                            <div class="flex items-center justify-between">
+                                <p class="text-slate-400 text-sm">Rooms Completed</p>
+                                <i class="bi bi-door-closed text-brand text-xl"></i>
+                            </div>
+                            <h3 class="text-3xl font-bold mt-2">12</h3>
+                            <span class="text-green-500 text-xs"><i class="bi bi-graph-up"></i> +3 this month</span>
+                        </div>
+                        <div class="stat-card">
+                            <div class="flex items-center justify-between">
+                                <p class="text-slate-400 text-sm">Success Rate</p>
+                                <i class="bi bi-trophy text-amber-500 text-xl"></i>
+                            </div>
+                            <h3 class="text-3xl font-bold mt-2 text-amber-500">67%</h3>
+                            <span class="text-slate-500 text-xs">Global avg: 58%</span>
+                        </div>
+                        <div class="stat-card">
+                            <div class="flex items-center justify-between">
+                                <p class="text-slate-400 text-sm">Loyalty Points</p>
+                                <i class="bi bi-gem text-pink-500 text-xl"></i>
+                            </div>
+                            <h3 class="text-3xl font-bold mt-2 text-pink-500">2,450</h3>
+                            <span class="text-brand text-xs"><i class="bi bi-star-fill"></i> 150 to next tier</span>
+                        </div>
+                        <div class="stat-card">
+                            <div class="flex items-center justify-between">
+                                <p class="text-slate-400 text-sm">Avg Escape Time</p>
+                                <i class="bi bi-hourglass-split text-cyan-500 text-xl"></i>
+                            </div>
+                            <h3 class="text-3xl font-bold mt-2">52 min</h3>
+                            <span class="text-slate-500 text-xs">Personal best: 41 min</span>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Bookings & Recent Activity Grid -->
+                    <div class="grid lg:grid-cols-3 gap-6">
+                        <div class="info-box lg:col-span-2">
+                            <h4 class="font-bold mb-4 flex items-center gap-2">
+                                <i class="bi bi-calendar-week text-brand"></i> Upcoming Adventures
+                            </h4>
+                            <div class="space-y-4">
+                                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center p-4 bg-slate-50 dark:bg-darkBg rounded-xl border border-slate-200 dark:border-white/5">
+                                    <div>
+                                        <p class="font-bold flex items-center gap-2">
+                                            <i class="bi bi-magic text-brand"></i> The Alchemist's Chamber
+                                        </p>
+                                        <p class="text-xs text-slate-400">
+                                            <i class="bi bi-calendar"></i> Sat, May 18 · 7:00 PM · 
+                                            <i class="bi bi-people"></i> 4 players
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-2 mt-2 sm:mt-0">
+                                        <span class="badge bg-brand/10 text-brand"><i class="bi bi-check-circle"></i> Confirmed</span>
+                                        <button class="text-xs text-red-500 hover:underline flex items-center gap-1"><i class="bi bi-arrow-repeat"></i> Reschedule</button>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center p-4 bg-slate-50 dark:bg-darkBg rounded-xl">
+                                    <div>
+                                        <p class="font-bold flex items-center gap-2">
+                                            <i class="bi bi-binoculars text-amber-500"></i> Noir: Lost Witness
+                                        </p>
+                                        <p class="text-xs text-slate-400">
+                                            <i class="bi bi-calendar"></i> Sun, May 26 · 3:30 PM · 
+                                            <i class="bi bi-people"></i> 2 players
+                                        </p>
+                                    </div>
+                                    <div class="flex gap-2 mt-2 sm:mt-0">
+                                        <span class="badge bg-amber-500/10 text-amber-500"><i class="bi bi-clock-history"></i> Pending Payment</span>
+                                        <button class="text-xs text-brand font-semibold flex items-center gap-1"><i class="bi bi-credit-card"></i> Pay Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="mt-4 text-brand text-sm font-semibold flex items-center gap-1 hover:underline"><i class="bi bi-eye"></i> View all bookings <i class="bi bi-arrow-right"></i></button>
+                        </div>
+
+                        <div class="info-box">
+                            <h4 class="font-bold mb-4 flex items-center gap-2">
+                                <i class="bi bi-lightning-charge text-amber-500"></i> Recent Team Activity
+                            </h4>
+                            <div class="space-y-3 text-sm">
+                                <div class="flex gap-2 items-start">
+                                    <i class="bi bi-trophy-fill text-green-500 mt-0.5"></i>
+                                    <p>You and team "Puzzle Pirates" escaped 'Haunted Mansion' in 47 mins!</p>
+                                </div>
+                                <div class="flex gap-2 items-start">
+                                    <i class="bi bi-megaphone-fill text-blue-500 mt-0.5"></i>
+                                    <p>Hint: New room 'Cyber Heist' just released - 20% off for members.</p>
+                                </div>
+                                <div class="flex gap-2 items-start">
+                                    <i class="bi bi-award-fill text-purple-500 mt-0.5"></i>
+                                    <p>You earned 'Master of Riddles' badge.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personal Bests & Friends Leaderboard -->
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <div class="info-box">
+                            <h4 class="font-bold mb-4 flex items-center gap-2">
+                                <i class="bi bi-graph-up"></i> My Performance Stats
+                            </h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between text-sm">
+                                        <span class="flex items-center gap-1"><i class="bi bi-puzzle"></i> Puzzle Solving Speed</span>
+                                        <span>Top 15%</span>
+                                    </div>
+                                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full"><div class="bg-brand h-2 rounded-full w-[85%]"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-sm">
+                                        <span class="flex items-center gap-1"><i class="bi bi-people"></i> Team Collaboration</span>
+                                        <span>Exceptional</span>
+                                    </div>
+                                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full"><div class="bg-green-500 h-2 rounded-full w-[92%]"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-sm">
+                                        <span class="flex items-center gap-1"><i class="bi bi-lightbulb"></i> Hint Reliance</span>
+                                        <span>Low (2 avg)</span>
+                                    </div>
+                                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full"><div class="bg-amber-500 h-2 rounded-full w-[30%]"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-box">
+                            <h4 class="font-bold mb-3 flex items-center gap-2">
+                                <i class="bi bi-people text-brand"></i> Friend Leaderboard
+                            </h4>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between p-2 rounded-lg bg-slate-50 dark:bg-darkBg">
+                                    <span><i class="bi bi-star-fill text-amber-500 mr-2"></i>1. Sarah Connor</span>
+                                    <span class="font-bold text-amber-500">15 escapes</span>
+                                </div>
+                                <div class="flex justify-between p-2 rounded-lg">
+                                    <span><i class="bi bi-person-check-fill text-brand mr-2"></i>2. Alex Mercer (You)</span>
+                                    <span class="font-bold text-brand">12 escapes</span>
+                                </div>
+                                <div class="flex justify-between p-2 rounded-lg">
+                                    <span><i class="bi bi-person mr-2"></i>3. James Carter</span>
+                                    <span class="font-bold text-slate-400">10 escapes</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= MY BOOKINGS ================= -->
+                <section id="my-bookings" class="page-content hidden space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <p class="text-slate-500 text-sm flex items-center gap-1"><i class="bi bi-info-circle"></i> Manage your upcoming and past escape room sessions.</p>
+                        <button class="btn-primary w-full sm:w-auto justify-center"><i class="bi bi-plus-lg"></i> New Booking</button>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr><th><i class="bi bi-door-open"></i> Room</th><th><i class="bi bi-calendar"></i> Date & Time</th><th><i class="bi bi-people"></i> Players</th><th><i class="bi bi-info-circle"></i> Status</th><th><i class="bi bi-gear"></i> Action</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="font-bold"><i class="bi bi-magic text-brand mr-2"></i>The Alchemist's Chamber</td><td>May 18, 2025 · 7:00 PM</td><td>4</td><td><span class="badge bg-green-500/10 text-green-500"><i class="bi bi-check-circle"></i> Confirmed</span></td><td><button class="text-brand hover:underline text-sm flex items-center gap-1"><i class="bi bi-eye"></i> View Details</button></td></tr>
+                                <tr><td class="font-bold"><i class="bi bi-binoculars text-amber-500 mr-2"></i>Noir: Lost Witness</td><td>May 26, 2025 · 3:30 PM</td><td>2</td><td><span class="badge bg-yellow-500/10 text-yellow-500"><i class="bi bi-clock-history"></i> Awaiting Payment</span></td><td><button class="text-brand hover:underline text-sm font-semibold flex items-center gap-1"><i class="bi bi-credit-card"></i> Pay Now</button></td></tr>
+                                <tr><td class="font-bold"><i class="bi bi-cpu text-cyan-500 mr-2"></i>Cyber Heist</td><td>June 5, 2025 · 8:15 PM</td><td>5</td><td><span class="badge bg-blue-500/10 text-blue-500"><i class="bi bi-calendar"></i> Upcoming</span></td><td><button class="text-slate-400 text-sm flex items-center gap-1"><i class="bi bi-pencil"></i> Modify</button></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- ================= EXPLORE ROOMS ================= -->
+                <section id="explore" class="page-content hidden space-y-6">
+                    <p class="text-slate-400 text-sm flex items-center gap-1"><i class="bi bi-compass"></i> Discover new challenges, each with unique puzzles and immersive stories.</p>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-white dark:bg-darkCard rounded-2xl overflow-hidden border border-slate-200 dark:border-white/5 hover:scale-[1.02] transition-all"><div class="p-5 space-y-3"><div class="flex justify-between"><i class="bi bi-emoji-dizzy text-4xl text-brand"></i><span class="badge bg-red-500/10 text-red-500"><i class="bi bi-star-fill"></i> Hard</span></div><h3 class="font-bold text-xl flex items-center gap-2"><i class="bi bi-ghost"></i> Haunted Mansion</h3><p class="text-sm text-slate-400"><i class="bi bi-people"></i> 2-6 players · <i class="bi bi-hourglass"></i> 60 min</p><button class="btn-outline w-full justify-center mt-2"><i class="bi bi-bookmark-plus"></i> Book Experience</button></div></div>
+                        <div class="bg-white dark:bg-darkCard rounded-2xl overflow-hidden border border-slate-200 dark:border-white/5 hover:scale-[1.02] transition-all"><div class="p-5 space-y-3"><div class="flex justify-between"><i class="bi bi-cpu text-4xl text-cyan-500"></i><span class="badge bg-orange-500/10 text-orange-500"><i class="bi bi-dash-circle"></i> Medium</span></div><h3 class="font-bold text-xl flex items-center gap-2"><i class="bi bi-flask"></i> Secret Lab theme</h3><p class="text-sm text-slate-400"><i class="bi bi-people"></i> 4-8 players · <i class="bi bi-hourglass"></i> 75 min</p><button class="btn-outline w-full justify-center mt-2"><i class="bi bi-bookmark-plus"></i> Book Experience</button></div></div>
+                        <div class="bg-white dark:bg-darkCard rounded-2xl overflow-hidden border border-slate-200 dark:border-white/5 hover:scale-[1.02] transition-all"><div class="p-5 space-y-3"><div class="flex justify-between"><i class="bi bi-stars text-4xl text-purple-500"></i><span class="badge bg-green-500/10 text-green-500"><i class="bi bi-check-lg"></i> Easy</span></div><h3 class="font-bold text-xl flex items-center gap-2"><i class="bi bi-rocket-takeoff"></i> Space Escape</h3><p class="text-sm text-slate-400"><i class="bi bi-people"></i> 2-4 players · <i class="bi bi-hourglass"></i> 45 min</p><button class="btn-outline w-full justify-center mt-2"><i class="bi bi-bookmark-plus"></i> Book Experience</button></div></div>
+                    </div>
+                </section>
+
+                <!-- ================= ACHIEVEMENTS ================= -->
+                <section id="achievements" class="page-content hidden space-y-6">
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="info-box text-center"><i class="bi bi-puzzle text-4xl text-brand mb-2 block"></i><h3 class="font-bold">Puzzle Master</h3><p class="text-xs text-slate-400">Solved 50 puzzles</p><span class="badge bg-brand/10 mt-2"><i class="bi bi-unlock"></i> Unlocked</span></div>
+                        <div class="info-box text-center"><i class="bi bi-stopwatch text-4xl text-amber-500 mb-2 block"></i><h3 class="font-bold">Speedrunner</h3><p class="text-xs text-slate-400">Escaped under 40 min</p><span class="badge bg-slate-500/10 mt-2"><i class="bi bi-lock"></i> Locked</span></div>
+                        <div class="info-box text-center"><i class="bi bi-people text-4xl text-green-500 mb-2 block"></i><h3 class="font-bold">Team Leader</h3><p class="text-xs text-slate-400">5 sessions with 6+ players</p><span class="badge bg-brand/10 mt-2"><i class="bi bi-unlock"></i> Unlocked</span></div>
+                        <div class="info-box text-center"><i class="bi bi-emoji-sunglasses text-4xl text-blue-500 mb-2 block"></i><h3 class="font-bold">No Hints Run</h3><p class="text-xs text-slate-400">Completed without hints</p><span class="badge bg-slate-500/10 mt-2"><i class="bi bi-lock"></i> Locked</span></div>
+                    </div>
+                </section>
+
+                <!-- ================= LOYALTY REWARDS ================= -->
+                <section id="rewards" class="page-content hidden space-y-6">
+                    <div class="bg-gradient-to-r from-pink-500/20 to-brand/20 p-6 rounded-2xl text-center border border-white/10">
+                        <h3 class="text-2xl font-bold flex items-center justify-center gap-2"><i class="bi bi-gem text-pink-400"></i> 2,450 <span class="text-sm text-slate-300">Loyalty Gems</span></h3>
+                        <p class="text-sm flex items-center justify-center gap-1 mt-1"><i class="bi bi-arrow-up-circle"></i> You are 150 points away from <span class="text-amber-500 font-bold">PLATINUM TIER</span> (20% off all rooms)</p>
+                        <div class="w-full h-3 bg-slate-700 rounded-full mt-3 max-w-md mx-auto"><div class="bg-gradient-to-r from-brand to-pink-500 h-3 rounded-full w-[70%]"></div></div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="info-box flex items-center justify-between"><span><i class="bi bi-ticket-perforated text-brand text-xl mr-2"></i> Free hint booster</span><span class="badge bg-green-500/10">300 pts</span><button class="text-xs bg-brand/20 px-2 py-1 rounded flex items-center gap-1"><i class="bi bi-gift"></i> Redeem</button></div>
+                        <div class="info-box flex items-center justify-between"><span><i class="bi bi-cup-hot text-xl mr-2"></i> VIP Lounge Access</span><span class="badge bg-amber-500/10">1200 pts</span><button class="text-xs bg-brand/20 px-2 py-1 rounded flex items-center gap-1"><i class="bi bi-gift"></i> Redeem</button></div>
+                    </div>
+                </section>
+
+                <!-- ================= MY PROFILE ================= -->
+                <section id="profile" class="page-content hidden space-y-6">
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="info-box text-center flex flex-col items-center gap-3"><img src="https://ui-avatars.com/api/?name=Alex+Mercer&background=7C3AED&color=fff&size=100" class="w-24 h-24 rounded-full ring-4 ring-brand/30"><h2 class="text-2xl font-bold">Alex Mercer</h2><p class="text-slate-400"><i class="bi bi-envelope"></i> alex.mercer@escapist.com</p><button class="btn-outline text-sm"><i class="bi bi-pencil-square"></i> Edit Profile</button></div>
+                        <div class="info-box md:col-span-2"><h3 class="font-bold mb-3 flex items-center gap-2"><i class="bi bi-person-badge"></i> Account Details</h3><div class="space-y-2 text-sm border-b pb-2"><span class="text-slate-400 flex items-center gap-2"><i class="bi bi-calendar-plus"></i> Member since:</span> March 2024</div><div class="space-y-2 text-sm border-b pb-2"><span class="text-slate-400 flex items-center gap-2"><i class="bi bi-globe"></i> Preferred Language:</span> English</div><div class="space-y-2 text-sm"><span class="text-slate-400 flex items-center gap-2"><i class="bi bi-envelope-paper"></i> Newsletter:</span> Subscribed <i class="bi bi-envelope-check text-green-500 ml-1"></i></div></div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        function toggleSidebar() { sidebar.classList.toggle('-translate-x-full'); mobileOverlay.classList.toggle('hidden'); }
+
+        function show(id, element) {
+            document.querySelectorAll('.page-content').forEach(p => p.classList.add('hidden'));
+            document.getElementById(id).classList.remove('hidden');
+            let titleText = element.innerText.trim();
+            document.getElementById('title').innerText = titleText;
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            element.classList.add('active');
+            if(window.innerWidth < 768) toggleSidebar();
+        }
+
+        function toggleTheme() { document.documentElement.classList.toggle('dark'); localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light'); }
+        function toggleRTL() { document.documentElement.dir = (document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl'); }
+        if (localStorage.getItem('theme') === 'light') document.documentElement.classList.remove('dark');
+    </script>
+</body>
+</html>

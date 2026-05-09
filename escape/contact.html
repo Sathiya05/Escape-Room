@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Hidden Logic</title>
+    <link rel="icon" href="images/logo.jpeg">
+    <script src="tailwind.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        /* RTL */
+        .rtl {
+            direction: rtl;
+        }
+
+
+        /* THEME TOGGLE */
+        :root {
+            --home-bg: #ffffff;
+            --text-color: #111111;
+        }
+
+        [data-theme="dark"] {
+            --home-bg: #000000;
+            --text-color: #ffffff;
+        }
+
+        body {
+            background-color: var(--home-bg) !important;
+            color: var(--text-color);
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        [data-theme="dark"] section,
+        [data-theme="dark"] .card {
+            background-color: #000000 !important;
+        }
+
+        [data-theme="dark"] .btn,
+        [data-theme="dark"] .btn1:hover {
+            color: #000000 !important;
+        }
+
+        [data-theme="dark"] body,
+        [data-theme="dark"] p,
+        [data-theme="dark"] h1,
+        [data-theme="dark"] h2,
+        [data-theme="dark"] h3,
+        [data-theme="dark"] h4,
+        [data-theme="dark"] h5,
+        [data-theme="dark"] h6,
+        [data-theme="dark"] span,
+        [data-theme="dark"] li,
+        [data-theme="dark"] a,
+        [data-theme="dark"] i,
+        [data-theme="dark"] label,
+        [data-theme="dark"] table,
+        [data-theme="dark"] th,
+        [data-theme="dark"] td,
+        [data-theme="dark"] div,
+        [data-theme="dark"] small,
+        [data-theme="dark"] strong {
+            color: #ffffff !important;
+        }
+
+        /* PREMIUM DARK MODE CONTRAST FIXES */
+        [data-theme="dark"] .bg-white,
+        [data-theme="dark"] .bg-\[\#F8F7FF\] {
+            background-color: #000000 !important;
+            border-color: #2b1d4c !important;
+        }
+
+        [data-theme="dark"] .border-gray-200,
+        [data-theme="dark"] .border-violet-100,
+        [data-theme="dark"] .border-violet-200,
+        [data-theme="dark"] .border-purple-200 {
+            border-color: #2b1d4c !important;
+        }
+
+        [data-theme="dark"] .bg-violet-100,
+        [data-theme="dark"] .bg-purple-100,
+        [data-theme="dark"] .bg-violet-50,
+        [data-theme="dark"] .bg-purple-50 {
+            background-color: rgba(139, 92, 246, 0.15) !important;
+            border-color: rgba(139, 92, 246, 0.3) !important;
+        }
+
+        [data-theme="dark"] .text-violet-700,
+        [data-theme="dark"] .text-purple-700,
+        [data-theme="dark"] .bg-violet-100 i,
+        [data-theme="dark"] .bg-violet-100 span,
+        [data-theme="dark"] .bg-purple-100 i,
+        [data-theme="dark"] .bg-purple-100 span,
+        [data-theme="dark"] .bg-violet-50 i,
+        [data-theme="dark"] .bg-violet-50 span {
+            color: #c084fc !important;
+        }
+    </style>
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+</head>
+
+<body class="font-sans">
+    <!-- navbar -->
+    <div id="navbar"></div>
+
+    <!-- HERO BANNER -->
+<!-- HERO SECTION -->
+<section class="relative bg-cover bg-center bg-no-repeat"
+    style="background-image: url('images/bg8.webp');">
+
+    <!-- OVERLAY -->
+    <div class="absolute inset-0 bg-black/70"></div>
+
+    <div
+        class="max-w-4xl mx-auto px-6 py-32 relative z-10 flex flex-col items-center text-center">
+
+        <!-- TITLE -->
+        <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight">
+
+            Let’s Build Your
+            <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-violet-300 to-purple-300">
+
+                Next Escape Room Experience
+            </span>
+        </h1>
+
+        <!-- DESCRIPTION -->
+        <p
+            class="mt-6 text-lg text-gray-200 leading-relaxed max-w-2xl">
+
+            Have questions about escape room consultancy,
+            puzzle systems, immersive storytelling,
+            or smart automation integration?
+            Our team is here to help bring your vision to life.
+        </p>
+
+        <!-- BUTTON -->
+        <a href="contact.html"
+            class="mt-8 inline-flex items-center gap-3 bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white font-semibold px-8 py-4 rounded-full shadow-2xl transition-all duration-300">
+
+            Contact Our Team
+            <i class="bi bi-arrow-right"></i>
+        </a>
+
+    </div>
+
+</section>
+
+<!-- CONTACT INFO SECTION -->
+<section class="py-24 bg-[#F8F7FF]">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- TITLE -->
+        <div class="text-center mb-16">
+
+            <span
+                class="text-violet-600 font-semibold uppercase tracking-wider">
+
+                Contact Information
+            </span>
+
+            <h2
+                class="text-4xl md:text-5xl font-black text-gray-900 mt-4">
+
+                Reach Out To Our Team
+            </h2>
+
+            <p
+                class="text-gray-600 mt-4 max-w-2xl mx-auto leading-relaxed">
+
+                Whether you’re planning a new escape room,
+                upgrading puzzle systems,
+                or developing immersive experiences,
+                we’re ready to collaborate.
+            </p>
+
+        </div>
+
+        <!-- INFO CARDS -->
+        <div class="grid lg:grid-cols-3 gap-8">
+
+            <!-- CARD -->
+            <div
+                class="border border-violet-200 bg-white rounded-[30px] shadow-xl p-8 flex flex-col items-center text-center hover:-translate-y-2 transition-all duration-300">
+
+                <div
+                    class="w-16 h-16 flex items-center justify-center bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-2xl text-2xl mb-5">
+
+                    <i class="bi bi-telephone-fill"></i>
+
+                </div>
+
+                <h4
+                    class="font-bold text-xl text-gray-900">
+
+                    Call Us
+                </h4>
+
+                <p
+                    class="text-gray-600 mt-3">
+
+                    +91 98765 43210
+                </p>
+
+            </div>
+
+            <!-- CARD -->
+            <div
+                class="border border-violet-200 bg-white rounded-[30px] shadow-xl p-8 flex flex-col items-center text-center hover:-translate-y-2 transition-all duration-300">
+
+                <div
+                    class="w-16 h-16 flex items-center justify-center bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-2xl text-2xl mb-5">
+
+                    <i class="bi bi-envelope-fill"></i>
+
+                </div>
+
+                <h4
+                    class="font-bold text-xl text-gray-900">
+
+                    Email Us
+                </h4>
+
+                <p
+                    class="text-gray-600 mt-3">
+
+                    hello@escaperoomstudio.com
+                </p>
+
+            </div>
+
+            <!-- CARD -->
+            <div
+                class="border border-violet-200 bg-white rounded-[30px] shadow-xl p-8 flex flex-col items-center text-center hover:-translate-y-2 transition-all duration-300">
+
+                <div
+                    class="w-16 h-16 flex items-center justify-center bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-2xl text-2xl mb-5">
+
+                    <i class="bi bi-geo-alt-fill"></i>
+
+                </div>
+
+                <h4
+                    class="font-bold text-xl text-gray-900">
+
+                    Visit Us
+                </h4>
+
+                <p
+                    class="text-gray-600 mt-3">
+
+                    Chennai, Tamil Nadu, India
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- MAP -->
+        <div
+            class="mt-14 rounded-[35px] overflow-hidden shadow-2xl border border-violet-100">
+
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.123456789!2d80.2707!3d13.0827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5264e2b1b0c0ff%3A0xabcdef123456789!2sChennai%2C%20Tamil%20Nadu%2C%20India!5e0!3m2!1sen!2sin!4v1689012345678!5m2!1sen!2sin"
+                width="100%"
+                height="420"
+                class="border-0"
+                allowfullscreen=""
+                loading="lazy">
+            </iframe>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT FORM -->
+<section class="py-24 bg-white">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- TITLE -->
+        <div class="text-center mb-16">
+
+            <span
+                class="text-violet-600 font-semibold uppercase tracking-wider">
+
+                Send Us a Message
+            </span>
+
+            <h2
+                class="text-4xl md:text-5xl font-black text-gray-900 mt-4">
+
+                Start Your Project
+            </h2>
+
+            <p
+                class="text-gray-600 mt-4 max-w-2xl mx-auto leading-relaxed">
+
+                Tell us about your vision,
+                gameplay ideas,
+                venue requirements,
+                and immersive concepts.
+            </p>
+
+        </div>
+
+        <!-- FORM -->
+        <form
+            action="#"
+            class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <!-- NAME -->
+            <div class="flex flex-col">
+
+                <label
+                    class="text-gray-700 font-semibold mb-2">
+
+                    Your Name
+                </label>
+
+                <input
+                    type="text"
+                    placeholder="John Doe"
+                    class="border border-violet-200 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-violet-500 transition">
+
+            </div>
+
+            <!-- EMAIL -->
+            <div class="flex flex-col">
+
+                <label
+                    class="text-gray-700 font-semibold mb-2">
+
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    placeholder="john@example.com"
+                    class="border border-violet-200 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-violet-500 transition">
+
+            </div>
+
+            <!-- PHONE -->
+            <div class="flex flex-col">
+
+                <label
+                    class="text-gray-700 font-semibold mb-2">
+
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    placeholder="+91 98765 43210"
+                    class="border border-violet-200 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-violet-500 transition">
+
+            </div>
+
+            <!-- SUBJECT -->
+            <div class="flex flex-col">
+
+                <label
+                    class="text-gray-700 font-semibold mb-2">
+
+                    Project Type
+                </label>
+
+                <input
+                    type="text"
+                    placeholder="Escape Room Consultancy"
+                    class="border border-violet-200 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-violet-500 transition">
+
+            </div>
+
+            <!-- MESSAGE -->
+            <div class="flex flex-col md:col-span-2">
+
+                <label
+                    class="text-gray-700 font-semibold mb-2">
+
+                    Your Message
+                </label>
+
+                <textarea
+                    rows="6"
+                    placeholder="Tell us about your escape room idea..."
+                    class="border border-violet-200 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-violet-500 transition"></textarea>
+
+            </div>
+
+            <!-- BUTTON -->
+            <div class="md:col-span-2 text-center">
+
+                <button
+                    type="submit"
+                    class="inline-flex items-center gap-3 bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white font-semibold px-8 py-4 rounded-full shadow-2xl transition-all duration-300">
+
+                    Send Message
+                    <i class="bi bi-send-fill"></i>
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+           <!-- FOOTER -->
+    <div id="footer"></div>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'ui-sans-serif', 'system-ui'],
+                    },
+                },
+            },
+        }
+    </script>
+    <script src="navbar.js"></script>
+    <script src="footer.js"></script>
+</body>
+
+</html>

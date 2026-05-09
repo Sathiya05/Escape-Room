@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found</title>
+<link rel="icon" href="images/logo.jpeg">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="tailwind.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #F5F3FF;
+      overflow: hidden;
+    }
+
+    /* FLOATING ANIMATION */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* FADE IN */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .float {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .fade {
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .glow {
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      background: #8B5CF6;
+      filter: blur(160px);
+      opacity: 0.25;
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    /* Global Typography Consistency Overrides */
+    h1, h2, h1 *, h2 * {
+      font-weight: 600 !important;
+    }
+    h3, h4, h5, h6, h3 *, h4 *, h5 *, h6 * {
+      font-weight: 500 !important;
+    }
+  </style>
+</head>
+
+<body class="relative flex items-center justify-center min-h-screen">
+
+  <!-- BACKGROUND GLOW -->
+  <div class="glow top-0 left-0"></div>
+  <div class="glow bottom-0 right-0 bg-purple-500"></div>
+
+  <!-- CONTENT -->
+  <div class="text-center px-6 max-w-md fade">
+
+    <!-- ICON -->
+    <div class="text-violet-600 text-7xl mb-4 float">
+      <i class="bi bi-exclamation-triangle-fill"></i>
+    </div>
+
+    <!-- 404 TEXT -->
+    <h1 class="text-8xl font-black text-violet-600 mb-2 float">
+      404
+    </h1>
+
+    <h2 class="text-2xl font-bold text-gray-800 mb-3">
+      Page Not Found
+    </h2>
+
+    <p class="text-gray-500 mb-8">
+      Looks like you entered a broken portal. Let’s get you back safely.
+    </p>
+
+    <!-- BUTTON -->
+    <a href="index.html"
+      class="inline-flex items-center gap-2 bg-violet-600 hover:bg-violet-700 text-white px-6 py-3 rounded-full font-semibold transition transform hover:scale-105 active:scale-95">
+      <i class="bi bi-house-door-fill"></i>
+      Back to Home
+    </a>
+
+  </div>
+
+</body>
+
+</html>

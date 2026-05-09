@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard-Hidden Logic</title>
+    <link rel="icon" href="images/logo.jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#7C3AED',
+                        accent: '#A78BFA',
+                        darkBg: '#0B0B14',
+                        darkCard: '#121026',
+                        darkBox: '#1A1630'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer components {
+            .nav-link {
+                @apply flex items-center gap-3 px-4 py-3 rounded-xl text-slate-400 transition-all duration-200 cursor-pointer hover:bg-brand/10 hover:text-brand font-medium;
+            }
+            .nav-link.active {
+                @apply bg-brand text-white shadow-lg shadow-brand/20;
+            }
+            .stat-card {
+                @apply p-6 rounded-2xl bg-white dark:bg-darkCard border border-slate-200 dark:border-white/5 shadow-sm;
+            }
+            .info-box {
+                @apply p-5 rounded-2xl bg-white dark:bg-darkBox border border-slate-100 dark:border-white/5 transition-transform hover:scale-[1.01];
+            }
+            .btn-primary {
+                @apply bg-brand text-white px-4 py-2 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity flex items-center gap-2;
+            }
+            .table-container {
+                @apply w-full overflow-x-auto bg-white dark:bg-darkCard rounded-2xl border border-slate-200 dark:border-white/5 shadow-sm mt-4;
+            }
+            .data-table {
+                @apply w-full text-left text-sm whitespace-nowrap;
+            }
+            .data-table th {
+                @apply p-4 bg-slate-50 dark:bg-darkBox text-slate-500 font-semibold border-b border-slate-200 dark:border-white/5;
+            }
+            .data-table td {
+                @apply p-4 border-b border-slate-100 dark:border-white/5 text-slate-700 dark:text-slate-300;
+            }
+            .badge {
+                @apply px-3 py-1 rounded-full text-xs font-bold inline-flex items-center gap-1;
+            }
+        }
+
+        /* Global Typography Consistency Overrides */
+        h1, h2, h1 *, h2 * {
+            font-weight: 600 !important;
+        }
+        h3, h4, h5, h6, h3 *, h4 *, h5 *, h6 * {
+            font-weight: 500 !important;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-darkBg text-slate-900 dark:text-slate-100 font-sans antialiased">
+
+    <div class="flex h-screen overflow-hidden relative">
+
+        <div id="mobileOverlay" class="fixed inset-0 bg-black/60 z-20 hidden md:hidden backdrop-blur-sm transition-opacity" onclick="toggleSidebar()"></div>
+
+        <aside id="sidebar" class="absolute md:relative z-30 w-72 h-full bg-white dark:bg-darkCard border-r border-slate-200 dark:border-white/10 flex flex-col transition-transform duration-300 -translate-x-full md:translate-x-0">
+            <div class="p-8 flex justify-between items-center">
+                <div>
+                   <h1 class="text-2xl text-slate-900 font-bold dark:text-white">
+          <a href="index.html">
+            HIDDEN <span class="text-[#8B5CF6] font-bold dark:text-white">LOGIC</span>
+          </a>
+        </h1>
+                </div>
+                <button class="md:hidden text-2xl text-slate-400" onclick="toggleSidebar()">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <nav class="flex-1 px-4 space-y-1 overflow-y-auto flex flex-col pb-6">
+                <a onclick="show('dashboard', this)" class="nav-link active">
+                    <i class="bi bi-grid-1x2-fill"></i> Dashboard
+                </a>
+                <a onclick="show('rooms', this)" class="nav-link">
+                    <i class="bi bi-door-open-fill"></i> Rooms Management
+                </a>
+                <a onclick="show('bookings', this)" class="nav-link">
+                    <i class="bi bi-calendar-check-fill"></i> Bookings & Schedule
+                </a>
+                <a onclick="show('puzzles', this)" class="nav-link">
+                    <i class="bi bi-puzzle-fill"></i> Puzzles & Hardware
+                </a>
+                <a onclick="show('players', this)" class="nav-link">
+                    <i class="bi bi-people-fill"></i> Players & CRM
+                </a>
+                <a onclick="show('revenue', this)" class="nav-link">
+                    <i class="bi bi-graph-up-arrow"></i> Financials
+                </a>
+
+                <div class="mt-auto pt-4 border-t border-slate-100 dark:border-white/5">
+                    <a href="login.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-red-500 transition-all duration-200 cursor-pointer hover:bg-red-500/10 font-medium">
+                        <i class="bi bi-box-arrow-left"></i> Logout
+                    </a>
+                </div>
+            </nav>
+
+            <div class="md:hidden p-6 mt-auto border-t border-slate-100 dark:border-white/5 space-y-3">
+                <button onclick="toggleTheme()" class="w-full flex items-center justify-center gap-2 bg-brand/10 text-brand py-3 rounded-xl text-sm font-semibold hover:bg-brand hover:text-white transition-colors">
+                    <i class="bi bi-moon-stars"></i> Toggle Theme
+                </button>
+                <button onclick="toggleRTL()" class="w-full flex items-center justify-center gap-2 bg-slate-100 dark:bg-slate-800 py-3 rounded-xl text-sm font-semibold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                    <i class="bi bi-arrow-left-right"></i> RTL Toggle
+                </button>
+            </div>
+        </aside>
+
+        <div class="flex-1 flex flex-col min-w-0 overflow-hidden relative">
+            
+            <header class="h-20 bg-white dark:bg-darkCard border-b border-slate-200 dark:border-white/10 px-4 sm:px-6 lg:px-8 flex justify-between items-center shrink-0 z-10">
+                <div class="flex items-center gap-4 min-w-0">
+                    <button class="md:hidden text-2xl dark:text-white shrink-0" onclick="toggleSidebar()">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <h2 id="title" class="text-lg sm:text-xl font-bold dark:text-white uppercase tracking-wide truncate">DASHBOARD</h2>
+                </div>
+
+                <div class="flex items-center gap-4 sm:gap-6 shrink-0">
+                    <div class="hidden md:flex items-center gap-3 border-r border-slate-200 dark:border-white/10 pr-6">
+                        <button onclick="toggleTheme()" class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-darkBox text-slate-600 dark:text-slate-300 hover:text-brand dark:hover:text-brand transition-colors" title="Toggle Theme">
+                            <i class="bi bi-moon-stars-fill"></i>
+                        </button>
+                        <button onclick="toggleRTL()" class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-darkBox text-slate-600 dark:text-slate-300 hover:text-brand dark:hover:text-brand transition-colors" title="Toggle RTL">
+                            <i class="bi bi-arrow-left-right"></i>
+                        </button>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <div class="text-right hidden sm:block">
+                            <p class="text-sm font-bold dark:text-white leading-none">Admin User</p>
+                            <span class="text-[11px] text-brand font-medium uppercase">Master Manager</span>
+                        </div>
+                        <img src="https://ui-avatars.com/api/?name=Admin&background=7C3AED&color=fff" 
+                             class="w-10 h-10 rounded-xl ring-2 ring-brand/20 cursor-pointer" alt="Profile">
+                    </div>
+                </div>
+            </header>
+
+            <main class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+                
+                <section id="dashboard" class="page-content space-y-6">
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+    <div class="stat-card">
+        <p class="text-slate-400 text-sm">Active Rooms</p>
+        <h3 class="text-3xl font-bold">06</h3>
+    </div>
+
+    <div class="stat-card">
+        <p class="text-slate-400 text-sm">Bookings Today</p>
+        <h3 class="text-3xl font-bold text-brand">18</h3>
+    </div>
+
+    <div class="stat-card">
+        <p class="text-slate-400 text-sm">Revenue</p>
+        <h3 class="text-3xl font-bold text-green-500">$1,450</h3>
+    </div>
+
+    <div class="stat-card">
+        <p class="text-slate-400 text-sm">Escape Rate</p>
+        <h3 class="text-3xl font-bold text-amber-500">42%</h3>
+    </div>
+
+</div>
+
+
+<div class="grid lg:grid-cols-3 gap-6">
+
+    <div class="info-box lg:col-span-2">
+        <h4 class="font-bold mb-4 flex items-center gap-2">
+            <i class="bi bi-graph-up text-brand"></i> Performance Analytics
+        </h4>
+
+        <div class="grid sm:grid-cols-3 gap-4">
+
+            <div class="p-4 bg-slate-50 dark:bg-[#121026] rounded-xl">
+                <p class="text-xs text-slate-400">Avg Completion Time</p>
+                <h3 class="text-xl font-bold">48 min</h3>
+            </div>
+
+            <div class="p-4 bg-slate-50 dark:bg-[#121026] rounded-xl">
+                <p class="text-xs text-slate-400">Hints Used</p>
+                <h3 class="text-xl font-bold text-orange-500">2.4 avg</h3>
+            </div>
+
+            <div class="p-4 bg-slate-50 dark:bg-[#121026] rounded-xl">
+                <p class="text-xs text-slate-400">Puzzle Success</p>
+                <h3 class="text-xl font-bold text-green-500">87%</h3>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="info-box">
+        <h4 class="font-bold mb-4 flex items-center gap-2">
+            <i class="bi bi-bullseye text-amber-500"></i> Daily Goals
+        </h4>
+
+        <div class="space-y-4">
+
+            <div>
+                <div class="flex justify-between text-xs mb-1">
+                    <span>Bookings Target</span>
+                    <span>18/25</span>
+                </div>
+                <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full">
+                    <div class="bg-brand h-2 rounded-full w-[72%]"></div>
+                </div>
+            </div>
+
+            <div>
+                <div class="flex justify-between text-xs mb-1">
+                    <span>Revenue Goal</span>
+                    <span>1450/2000</span>
+                </div>
+                <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full">
+                    <div class="bg-green-500 h-2 rounded-full w-[70%]"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<div class="grid lg:grid-cols-3 gap-6">
+
+    <div class="info-box lg:col-span-2">
+        <h4 class="font-bold mb-4 flex items-center justify-between">
+            <span class="flex items-center gap-2 truncate pr-2">
+                <i class="bi bi-camera-video text-brand"></i> Live Monitoring
+            </span>
+            <button class="text-xs text-brand hover:underline shrink-0">View All</button>
+        </h4>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-[#121026] border">
+                <div class="flex justify-between items-center">
+                    <span class="font-semibold truncate pr-2">Haunted Mansion</span>
+                    <span class="text-red-500 text-xs font-bold shrink-0">LIVE</span>
+                </div>
+                <div class="text-center text-2xl font-mono my-3">45:12</div>
+                <div class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full">
+                    <div class="bg-red-500 h-2 rounded-full w-[75%]"></div>
+                </div>
+                <p class="text-[11px] text-slate-400 mt-2 truncate">Players: 4 • Difficulty: Hard</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-[#121026] border">
+                <div class="flex justify-between items-center">
+                    <span class="font-semibold truncate pr-2">Secret Lab</span>
+                    <span class="text-green-500 text-xs font-bold shrink-0">RESET</span>
+                </div>
+                <div class="text-center text-2xl font-mono my-3 opacity-40">60:00</div>
+                <div class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full">
+                    <div class="bg-green-500 h-2 rounded-full w-0"></div>
+                </div>
+                <p class="text-[11px] text-slate-400 mt-2 truncate">Cleaning + Resetting puzzles</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="info-box">
+        <h4 class="font-bold mb-4 flex items-center gap-2">
+            <i class="bi bi-lightning text-amber-500"></i> Live Activity
+        </h4>
+
+        <div class="space-y-3 text-sm">
+
+            <div class="flex gap-2 items-start">
+                <span class="text-green-500 mt-0.5">●</span>
+                <p>Team Alpha solved laser puzzle</p>
+            </div>
+
+            <div class="flex gap-2 items-start">
+                <span class="text-orange-500 mt-0.5">●</span>
+                <p>Hint requested in Haunted Mansion</p>
+            </div>
+
+            <div class="flex gap-2 items-start">
+                <span class="text-blue-500 mt-0.5">●</span>
+                <p>New booking received</p>
+            </div>
+
+            <div class="flex gap-2 items-start">
+                <span class="text-red-500 mt-0.5">●</span>
+                <p>Magnetic lock error detected</p>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<div class="grid lg:grid-cols-3 gap-6">
+
+    <div class="info-box lg:col-span-2">
+        <h4 class="font-bold mb-4">System Health</h4>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+            <div class="p-4 bg-slate-50 dark:bg-[#121026] rounded-xl flex items-center justify-between sm:block">
+                <p class="text-xs text-slate-400">Sensors</p>
+                <h3 class="text-green-500 font-bold sm:mt-1">98%</h3>
+            </div>
+
+            <div class="p-4 bg-slate-50 dark:bg-[#121026] rounded-xl flex items-center justify-between sm:block">
+                <p class="text-xs text-slate-400">Locks</p>
+                <h3 class="text-green-500 font-bold sm:mt-1">100%</h3>
+            </div>
+
+            <div class="p-4 bg-slate-50 dark:bg-[#121026] rounded-xl flex items-center justify-between sm:block">
+                <p class="text-xs text-slate-400">Servers</p>
+                <h3 class="text-green-500 font-bold sm:mt-1">99.9%</h3>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="info-box">
+        <h4 class="font-bold mb-4 text-red-500">Critical Alerts</h4>
+
+        <div class="space-y-2 text-sm">
+
+            <p class="flex items-start gap-2"><span>⚠</span> Puzzle sync delay detected</p>
+            <p class="flex items-start gap-2"><span>⚠</span> Room 3 light malfunction</p>
+            <p class="flex items-start gap-2"><span>⚠</span> Backup battery low</p>
+
+        </div>
+    </div>
+
+</div>
+
+</section>
+
+                <section id="rooms" class="page-content hidden space-y-6">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <p class="text-slate-500 text-sm">Manage your physical escape rooms, status, and difficulties.</p>
+                        <button class="btn-primary w-full sm:w-auto justify-center shrink-0"><i class="bi bi-plus-lg"></i> Add New Room</button>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Room Name</th>
+                                    <th>Capacity</th>
+                                    <th>Difficulty</th>
+                                    <th>Current Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-bold">Haunted Mansion</td>
+                                    <td>2 - 6 Players</td>
+                                    <td><span class="text-orange-500"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i></span></td>
+                                    <td><span class="badge bg-green-500/10 text-green-500">Active</span></td>
+                                    <td><button class="text-brand hover:underline text-sm font-semibold">Edit Room</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">Secret Lab</td>
+                                    <td>4 - 8 Players</td>
+                                    <td><span class="text-orange-500"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></span></td>
+                                    <td><span class="badge bg-blue-500/10 text-blue-500">Ready</span></td>
+                                    <td><button class="text-brand hover:underline text-sm font-semibold">Edit Room</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">Space Escape</td>
+                                    <td>2 - 4 Players</td>
+                                    <td><span class="text-orange-500"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i></span></td>
+                                    <td><span class="badge bg-red-500/10 text-red-500">Maintenance</span></td>
+                                    <td><button class="text-brand hover:underline text-sm font-semibold">Edit Room</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="bookings" class="page-content hidden space-y-6">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                            <input type="date" class="px-4 py-2 rounded-lg border border-slate-200 dark:border-white/10 bg-white dark:bg-darkBox text-sm outline-none focus:border-brand w-full sm:w-auto">
+                            <select class="px-4 py-2 rounded-lg border border-slate-200 dark:border-white/10 bg-white dark:bg-darkBox text-sm outline-none focus:border-brand w-full sm:w-auto text-ellipsis overflow-hidden">
+                                <option>All Rooms</option>
+                                <option>Haunted Mansion</option>
+                                <option>Secret Lab</option>
+                            </select>
+                        </div>
+                       
+                    </div>
+
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Room</th>
+                                    <th>Team Name / Leader</th>
+                                    <th>Players</th>
+                                    <th>Payment</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-bold">10:00 AM</td>
+                                    <td>Haunted Mansion</td>
+                                    <td>Team Alpha (John Doe)</td>
+                                    <td>4</td>
+                                    <td><span class="badge bg-green-500/10 text-green-500"><i class="bi bi-check2"></i> Paid</span></td>
+                                    <td><span class="badge bg-green-500/10 text-green-500">In Game</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">11:30 AM</td>
+                                    <td>Secret Lab</td>
+                                    <td>Beta Squad (Sarah Smith)</td>
+                                    <td>6</td>
+                                    <td><span class="badge bg-green-500/10 text-green-500"><i class="bi bi-check2"></i> Paid</span></td>
+                                    <td><span class="badge bg-amber-500/10 text-amber-500">Waiting</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">01:00 PM</td>
+                                    <td>Haunted Mansion</td>
+                                    <td>Walk-in (Mike T.)</td>
+                                    <td>2</td>
+                                    <td><span class="badge bg-red-500/10 text-red-500">Unpaid</span></td>
+                                    <td><span class="badge bg-blue-500/10 text-blue-500">Confirmed</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="puzzles" class="page-content hidden space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+                        <div class="info-box border-l-4 border-l-brand">
+                            <div class="flex justify-between items-center">
+                                <h4 class="font-bold text-sm">Main Controller</h4>
+                                <i class="bi bi-hdd-network text-brand"></i>
+                            </div>
+                            <p class="text-2xl font-bold mt-2">Online</p>
+                            <p class="text-xs text-slate-500 mt-1">Ping: 12ms</p>
+                        </div>
+                        <div class="info-box border-l-4 border-l-green-500">
+                            <div class="flex justify-between items-center">
+                                <h4 class="font-bold text-sm">Mag-Locks</h4>
+                                <i class="bi bi-lock text-green-500"></i>
+                            </div>
+                            <p class="text-2xl font-bold mt-2">24/24</p>
+                            <p class="text-xs text-slate-500 mt-1">All functioning correctly</p>
+                        </div>
+                        <div class="info-box border-l-4 border-l-amber-500">
+                            <div class="flex justify-between items-center">
+                                <h4 class="font-bold text-sm">Audio Systems</h4>
+                                <i class="bi bi-speaker text-amber-500"></i>
+                            </div>
+                            <p class="text-2xl font-bold mt-2 text-amber-500">Warning</p>
+                            <p class="text-xs text-slate-500 mt-1">Room 3 Speaker sync delayed</p>
+                        </div>
+                        <div class="info-box border-l-4 border-l-blue-500">
+                            <div class="flex justify-between items-center">
+                                <h4 class="font-bold text-sm">Clue Screens</h4>
+                                <i class="bi bi-display text-blue-500"></i>
+                            </div>
+                            <p class="text-2xl font-bold mt-2">Active</p>
+                            <p class="text-xs text-slate-500 mt-1">Manual override available</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-darkBox p-4 sm:p-6 rounded-2xl border border-slate-100 dark:border-white/5">
+                        <h3 class="font-bold mb-4">Trigger Manual Overrides</h3>
+                        <div class="flex flex-col sm:flex-row flex-wrap gap-3">
+                            <button class="px-4 py-3 sm:py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-sm font-semibold hover:bg-slate-200 dark:hover:bg-slate-700 w-full sm:w-auto">Open Door 1 (Mansion)</button>
+                            <button class="px-4 py-3 sm:py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-sm font-semibold hover:bg-slate-200 dark:hover:bg-slate-700 w-full sm:w-auto">Skip Keypad (Lab)</button>
+                            <button class="px-4 py-3 sm:py-2 bg-red-500/10 text-red-500 rounded-lg text-sm font-semibold hover:bg-red-500/20 w-full sm:w-auto flex justify-center items-center gap-2"><i class="bi bi-exclamation-triangle"></i> Trigger Emergency Lights</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="players" class="page-content hidden space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        <div class="stat-card text-center py-6 sm:py-8">
+                            <h2 class="text-3xl sm:text-4xl font-black text-brand">7,042</h2>
+                            <p class="text-xs sm:text-sm text-slate-500 mt-2 uppercase tracking-wide font-bold">Total Players</p>
+                        </div>
+                        <div class="stat-card text-center py-6 sm:py-8">
+                            <h2 class="text-3xl sm:text-4xl font-black text-amber-500">1.2k</h2>
+                            <p class="text-xs sm:text-sm text-slate-500 mt-2 uppercase tracking-wide font-bold">VIP Members</p>
+                        </div>
+                        <div class="stat-card text-center py-6 sm:py-8">
+                            <h2 class="text-3xl sm:text-4xl font-black text-blue-500">42</h2>
+                            <p class="text-xs sm:text-sm text-slate-500 mt-2 uppercase tracking-wide font-bold">New Today</p>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <div class="p-4 border-b border-slate-200 dark:border-white/5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <h3 class="font-bold">Recent Players</h3>
+                            <div class="relative w-full sm:w-auto">
+                                <i class="bi bi-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                                <input type="text" placeholder="Search email or name..." class="pl-9 pr-4 py-2 sm:py-1.5 rounded-lg border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-darkBg text-sm outline-none focus:border-brand w-full sm:w-64">
+                            </div>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Player Name</th>
+                                    <th>Email</th>
+                                    <th>Rooms Played</th>
+                                    <th>Success Rate</th>
+                                    <th>Tier</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-bold">Alex Johnson</td>
+                                    <td>alex.j@example.com</td>
+                                    <td>5</td>
+                                    <td>80%</td>
+                                    <td><span class="badge bg-amber-500/10 text-amber-500"><i class="bi bi-star-fill"></i> Gold</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">Maria Garcia</td>
+                                    <td>m.garcia@email.com</td>
+                                    <td>2</td>
+                                    <td>50%</td>
+                                    <td><span class="badge bg-slate-500/10 text-slate-500">Standard</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="revenue" class="page-content hidden space-y-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div class="stat-card flex flex-col items-center justify-center py-10 sm:py-12 relative overflow-hidden">
+                            <div class="absolute -right-10 -top-10 w-40 h-40 bg-green-500/5 rounded-full blur-2xl"></div>
+                            <p class="text-slate-400 font-medium text-center">Total Revenue (This Month)</p>
+                            <h2 class="text-4xl sm:text-6xl font-black text-green-500 mt-2 break-all px-4 text-center w-full">$34,450</h2>
+                            <p class="text-brand text-xs sm:text-sm mt-4 font-bold bg-brand/10 px-4 py-1.5 rounded-full"><i class="bi bi-arrow-up-right"></i> +12.5% vs Last Month</p>
+                        </div>
+                        
+                        <div class="info-box flex flex-col justify-center">
+                            <h3 class="font-bold mb-4">Revenue Breakdown</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between text-sm mb-1"><span class="text-slate-500">Room Bookings</span> <span class="font-bold">$28,000</span></div>
+                                    <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2"><div class="bg-brand h-2 rounded-full" style="width: 80%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-sm mb-1"><span class="text-slate-500">Merchandise</span> <span class="font-bold">$4,200</span></div>
+                                    <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width: 15%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-sm mb-1"><span class="text-slate-500">Food & Beverages</span> <span class="font-bold">$2,250</span></div>
+                                    <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2"><div class="bg-amber-500 h-2 rounded-full" style="width: 5%"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <h3 class="font-bold p-4 border-b border-slate-200 dark:border-white/5">Recent Transactions</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Transaction ID</th>
+                                    <th>Date</th>
+                                    <th>Customer</th>
+                                    <th>Amount</th>
+                                    <th>Method</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-mono text-xs">#TRX-8923</td>
+                                    <td>Today, 11:45 AM</td>
+                                    <td>John Doe</td>
+                                    <td class="font-bold text-green-500">+$120.00</td>
+                                    <td>Credit Card (Stripe)</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-mono text-xs">#TRX-8922</td>
+                                    <td>Today, 09:30 AM</td>
+                                    <td>Sarah Smith</td>
+                                    <td class="font-bold text-green-500">+$180.00</td>
+                                    <td>PayPal</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-mono text-xs">#TRX-8921</td>
+                                    <td>Yesterday, 04:15 PM</td>
+                                    <td>Mike T.</td>
+                                    <td class="font-bold text-green-500">+$60.00</td>
+                                    <td>Cash (POS)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Sidebar Toggle logic
+        const sidebar = document.getElementById('sidebar');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('-translate-x-full');
+            mobileOverlay.classList.toggle('hidden');
+        }
+
+        // Navigation logic
+        function show(id, element) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(p => p.classList.add('hidden'));
+            
+            // Show selected page
+            document.getElementById(id).classList.remove('hidden');
+            
+            // Update Title (Remove the icon text from innerText, just keep base string)
+            const titleText = element.innerText.trim();
+            document.getElementById('title').innerText = titleText;
+
+            // Update active state in nav
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            element.classList.add('active');
+
+            // Close sidebar on mobile after clicking
+            if(window.innerWidth < 768) {
+                toggleSidebar();
+            }
+        }
+
+        // Theme Toggle logic
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        // RTL Toggle logic
+        function toggleRTL() {
+            const currentDir = document.documentElement.dir;
+            document.documentElement.dir = (currentDir === 'rtl' ? 'ltr' : 'rtl');
+        }
+
+        // Initialize theme on load
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</body>
+</html>
