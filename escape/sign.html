@@ -6,14 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Sign Up - Hidden Logic</title>
- <link rel="icon" href="images/logo.jpeg">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/logo.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;900&display=swap"
+    rel="stylesheet">
   <script src="tailwind.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <style>
     :root {
-      --bg: #F5F3FF;
+      --bg: #FFF7ED;
       --text: #111;
     }
 
@@ -25,7 +29,7 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Manrope', sans-serif;
       transition: background-color 0.4s ease, color 0.4s ease;
     }
 
@@ -33,13 +37,13 @@
     [data-theme="dark"] nav,
     [data-theme="dark"] .bg-white {
       background-color: #000000 !important;
-      border-color: #2b1d4c !important;
+      border-color: #7c2d12 !important;
     }
 
-    [data-theme="dark"] .border-violet-100,
+    [data-theme="dark"] .border-red-100,
     [data-theme="dark"] .border-b,
     [data-theme="dark"] .border {
-      border-color: #2b1d4c !important;
+      border-color: #7c2d12 !important;
     }
 
     [data-theme="dark"] h1,
@@ -56,7 +60,7 @@
 
     [data-theme="dark"] input {
       background-color: #000000 !important;
-      border-color: #2b1d4c !important;
+      border-color: #7c2d12 !important;
       color: #ffffff !important;
     }
 
@@ -66,23 +70,23 @@
 
     [data-theme="dark"] button.border {
       background-color: #000000 !important;
-      border-color: #2b1d4c !important;
+      border-color: #7c2d12 !important;
       color: #ffffff !important;
     }
 
     [data-theme="dark"] button.border:hover {
-      background-color: rgba(139, 92, 246, 0.15) !important;
+      background-color: rgba(249, 115, 22, 0.15) !important;
     }
 
     [data-theme="dark"] #rtlToggle,
     [data-theme="dark"] #theme-toggle {
-      background-color: rgba(139, 92, 246, 0.15) !important;
-      color: #c084fc !important;
+      background-color: rgba(249, 115, 22, 0.15) !important;
+      color: #fb923c !important;
     }
 
     [data-theme="dark"] #rtlToggle:hover,
     [data-theme="dark"] #theme-toggle:hover {
-      background-color: #8B5CF6 !important;
+      background-color: #F97316 !important;
       color: #ffffff !important;
     }
 
@@ -91,188 +95,204 @@
     }
 
     /* Global Typography Consistency Overrides */
-    h1, h2, h1 *, h2 * {
-      font-weight: 600 !important;
+    h1,
+    h2,
+    h1 *,
+    h2 * {
+      font-family: 'Playfair Display', serif !important;
+      font-weight: 550 !important;
+      letter-spacing: 0.01em;
     }
-    h3, h4, h5, h6, h3 *, h4 *, h5 *, h6 * {
+
+    h3,
+    h4,
+    h5,
+    h6,
+    h3 *,
+    h4 *,
+    h5 *,
+    h6 * {
+      font-family: 'Playfair Display', serif !important;
       font-weight: 500 !important;
+      letter-spacing: 0.01em;
     }
   </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="bg-white shadow-sm border-b border-violet-100">
-  <div class="max-w-5xl mx-auto px-6 flex justify-between items-center h-16">
+  <!-- NAVBAR -->
+  <nav class="bg-white shadow-sm border-b border-red-100">
+    <div class="max-w-5xl mx-auto px-6 flex justify-between items-center h-16">
 
-    <h1 class="text-2xl text-slate-900  font-bold">
-          <a href="index.html">
-            HIDDEN <span class="text-[#8B5CF6] font-bold">LOGIC</span>
-          </a>
-        </h1>
+      <h1 class="text-2xl text-slate-900  font-bold">
+        <a href="index.html">
+          HIDDEN <span class="text-[#F97316] font-bold">LOGIC</span>
+        </a>
+      </h1>
 
-    <div class="flex gap-3">
-      <button id="rtlToggle"
-        class="w-9 h-9 rounded-full bg-violet-100 text-violet-700 hover:bg-violet-600 hover:text-white transition">
-        ⇄
-      </button>
+      <div class="flex gap-3">
+        <button id="rtlToggle"
+          class="w-9 h-9 rounded-full bg-red-100 text-red-700 hover:bg-red-600 hover:text-white transition">
+          ⇄
+        </button>
 
-      <button id="theme-toggle"
-        class="w-9 h-9 rounded-full bg-violet-100 text-violet-700 hover:bg-violet-600 hover:text-white transition">
-        <i class="bi bi-moon-fill"></i>
-      </button>
-    </div>
-
-  </div>
-</nav>
-
-<!-- MAIN -->
-<div class="flex items-center justify-center min-h-screen px-4 py-10 mt-[-20px]">
-
-  <div class="bg-white shadow-2xl rounded-2xl overflow-hidden w-full max-w-4xl flex">
-
-    <!-- IMAGE (HIDDEN ON MOBILE) -->
-    <div class="hidden lg:block lg:w-1/2">
-      <img src="images/bg3.avif"
-        class="h-full w-full object-cover">
-    </div>
-
-    <!-- FORM -->
-    <div class="w-full lg:w-1/2 p-8 flex justify-center">
-
-      <div class="w-full max-w-sm">
-
-        <h2 class="text-2xl font-bold text-center text-violet-700 mb-6">
-          Create Account
-        </h2>
-
-        <form class="space-y-4">
-
-          <input type="text" placeholder="Full Name"
-            class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-violet-500">
-
-          <input type="email" placeholder="Email Address"
-            class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-violet-500">
-
-          <!-- PASSWORD -->
-          <div class="relative">
-            <input type="password" id="pass" placeholder="Password"
-              class="w-full p-3 border rounded-lg pr-10 focus:ring-2 focus:ring-violet-500">
-            <i id="togglePass"
-              class="bi bi-eye-slash absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer"></i>
-          </div>
-
-          <!-- CONFIRM -->
-          <div class="relative">
-            <input type="password" id="cpass" placeholder="Confirm Password"
-              class="w-full p-3 border rounded-lg pr-10 focus:ring-2 focus:ring-violet-500">
-            <i id="toggleCPass"
-              class="bi bi-eye-slash absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer"></i>
-          </div>
-
-          <!-- TERMS -->
-          <label class="flex items-center gap-2 text-sm">
-            <input type="checkbox" class="accent-violet-600">
-            I agree to Terms & Conditions
-          </label>
-
-          <button class="w-full bg-violet-600 hover:bg-violet-700 text-white py-3 rounded-lg font-bold">
-            Sign Up
-          </button>
-
-        </form>
-
-        <!-- DIVIDER -->
-        <div class="flex items-center my-5">
-          <div class="flex-1 h-px bg-gray-200"></div>
-          <span class="px-3 text-sm text-gray-400">Or continue with</span>
-          <div class="flex-1 h-px bg-gray-200"></div>
-        </div>
-
-        <!-- SOCIAL ROW ICONS -->
-        <div class="flex justify-between gap-3">
-
-          <button class="flex-1 flex flex-col items-center py-2 border rounded-lg hover:bg-violet-100">
-            <i class="bi bi-google"></i>
-            <span class="text-xs mt-1">Google</span>
-          </button>
-
-          <button class="flex-1 flex flex-col items-center py-2 border rounded-lg hover:bg-violet-100">
-            <i class="bi bi-facebook"></i>
-            <span class="text-xs mt-1">Facebook</span>
-          </button>
-
-          <button class="flex-1 flex flex-col items-center py-2 border rounded-lg hover:bg-violet-100">
-            <i class="bi bi-apple"></i>
-            <span class="text-xs mt-1">Apple</span>
-          </button>
-
-        </div>
-
-        <!-- LOGIN -->
-        <p class="text-center mt-6 text-sm">
-          Already have an account?
-          <a href="login.html" class="text-violet-600 font-semibold">Login</a>
-        </p>
-
+        <button id="theme-toggle"
+          class="w-9 h-9 rounded-full bg-red-100 text-red-700 hover:bg-red-600 hover:text-white transition">
+          <i class="bi bi-moon-fill"></i>
+        </button>
       </div>
+
     </div>
+  </nav>
 
+  <!-- MAIN -->
+  <div class="flex items-center justify-center min-h-screen px-4 py-10 mt-[-20px]">
+
+    <div class="bg-white shadow-2xl rounded-2xl overflow-hidden w-full max-w-4xl flex">
+
+      <!-- IMAGE (HIDDEN ON MOBILE) -->
+      <div class="hidden lg:block lg:w-1/2">
+        <img src="images/bg3.avif" class="h-full w-full object-cover">
+      </div>
+
+      <!-- FORM -->
+      <div class="w-full lg:w-1/2 p-8 flex justify-center">
+
+        <div class="w-full max-w-sm">
+
+          <h2 class="text-2xl font-bold text-center text-red-700 mb-2">
+            Create Account
+          </h2>
+          <p class="text-center text-sm text-gray-500 mb-6">
+            Join us and unlock thrilling escape room experiences
+          </p>
+
+          <form class="space-y-4">
+
+            <input type="text" placeholder="Full Name"
+              class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500">
+
+            <input type="email" placeholder="Email Address"
+              class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-red-500">
+
+            <!-- PASSWORD -->
+            <div class="relative">
+              <input type="password" id="pass" placeholder="Password"
+                class="w-full p-3 border rounded-lg pr-10 focus:ring-2 focus:ring-red-500">
+              <i id="togglePass" class="bi bi-eye-slash absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer"></i>
+            </div>
+
+            <!-- CONFIRM -->
+            <div class="relative">
+              <input type="password" id="cpass" placeholder="Confirm Password"
+                class="w-full p-3 border rounded-lg pr-10 focus:ring-2 focus:ring-red-500">
+              <i id="toggleCPass" class="bi bi-eye-slash absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer"></i>
+            </div>
+
+            <!-- TERMS -->
+            <label class="flex items-center gap-2 text-sm">
+              <input type="checkbox" class="accent-red-600">
+              I agree to Terms & Conditions
+            </label>
+
+            <button class="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-bold">
+              Sign Up
+            </button>
+
+          </form>
+
+          <!-- DIVIDER -->
+          <div class="flex items-center my-5">
+            <div class="flex-1 h-px bg-gray-200"></div>
+            <span class="px-3 text-sm text-gray-400">Or continue with</span>
+            <div class="flex-1 h-px bg-gray-200"></div>
+          </div>
+
+          <!-- SOCIAL ROW ICONS -->
+          <div class="flex justify-between gap-3">
+
+            <button class="flex-1 flex flex-col items-center py-2 border rounded-lg hover:bg-red-100">
+              <i class="bi bi-google"></i>
+              <span class="text-xs mt-1">Google</span>
+            </button>
+
+            <button class="flex-1 flex flex-col items-center py-2 border rounded-lg hover:bg-red-100">
+              <i class="bi bi-facebook"></i>
+              <span class="text-xs mt-1">Facebook</span>
+            </button>
+
+            <button class="flex-1 flex flex-col items-center py-2 border rounded-lg hover:bg-red-100">
+              <i class="bi bi-apple"></i>
+              <span class="text-xs mt-1">Apple</span>
+            </button>
+
+          </div>
+
+          <!-- LOGIN -->
+          <p class="text-center mt-6 text-sm">
+            Already have an account?
+            <a href="login.html" class="text-red-600 font-semibold">Login</a>
+          </p>
+
+        </div>
+      </div>
+
+    </div>
   </div>
-</div>
 
-<!-- SCRIPT -->
-<script>
+  <!-- SCRIPT -->
+  <script>
 
-  // Initialise RTL toggle
-  rtlToggle.onclick = () => {
-    document.documentElement.dir =
-      document.documentElement.dir === "rtl" ? "ltr" : "rtl";
-  };
-
-  // Initialise Theme toggle with localStorage syncing
-  const btn = document.getElementById("theme-toggle");
-
-  function applyTheme(theme) {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-    
-    // Update theme toggle icon
-    if (theme === "dark") {
-      btn.innerHTML = `<i class="bi bi-brightness-high-fill"></i>`;
-    } else {
-      btn.innerHTML = `<i class="bi bi-moon-fill"></i>`;
-    }
-  }
-
-  // Set theme on initial load
-  const savedTheme = localStorage.getItem("theme") || "light";
-  applyTheme(savedTheme);
-
-  // Toggle button click listener
-  btn.onclick = () => {
-    const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
-    const nextTheme = currentTheme === "dark" ? "light" : "dark";
-    applyTheme(nextTheme);
-  };
-
-  // Password fields visibility togglers
-  function toggle(id, input) {
-    const icon = document.getElementById(id);
-    const field = document.getElementById(input);
-
-    icon.onclick = () => {
-      field.type = field.type === "password" ? "text" : "password";
-      icon.classList.toggle("bi-eye");
-      icon.classList.toggle("bi-eye-slash");
+    // Initialise RTL toggle
+    rtlToggle.onclick = () => {
+      document.documentElement.dir =
+        document.documentElement.dir === "rtl" ? "ltr" : "rtl";
     };
-  }
 
-  toggle("togglePass", "pass");
-  toggle("toggleCPass", "cpass");
+    // Initialise Theme toggle with localStorage syncing
+    const btn = document.getElementById("theme-toggle");
 
-</script>
+    function applyTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem("theme", theme);
+
+      // Update theme toggle icon
+      if (theme === "dark") {
+        btn.innerHTML = `<i class="bi bi-brightness-high-fill"></i>`;
+      } else {
+        btn.innerHTML = `<i class="bi bi-moon-fill"></i>`;
+      }
+    }
+
+    // Set theme on initial load
+    const savedTheme = localStorage.getItem("theme") || "light";
+    applyTheme(savedTheme);
+
+    // Toggle button click listener
+    btn.onclick = () => {
+      const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
+      const nextTheme = currentTheme === "dark" ? "light" : "dark";
+      applyTheme(nextTheme);
+    };
+
+    // Password fields visibility togglers
+    function toggle(id, input) {
+      const icon = document.getElementById(id);
+      const field = document.getElementById(input);
+
+      icon.onclick = () => {
+        field.type = field.type === "password" ? "text" : "password";
+        icon.classList.toggle("bi-eye");
+        icon.classList.toggle("bi-eye-slash");
+      };
+    }
+
+    toggle("togglePass", "pass");
+    toggle("toggleCPass", "cpass");
+
+  </script>
 
 </body>
+
 </html>

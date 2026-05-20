@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="flex items-center">
       <h1 class="text-2xl text-slate-900  font-bold">
           <a href="index.html">
-            HIDDEN <span class="text-[#8B5CF6] font-bold">LOGIC</span>
+            HIDDEN <span class="text-[#F97316] font-bold">LOGIC</span>
           </a>
         </h1>
     </div>
@@ -23,32 +23,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <!-- Home Dropdown -->
         <li class="relative">
-          <button id="homeDropdownBtn" class="flex items-center gap-1 hover:text-[#8B5CF6] transition">
+          <button id="homeDropdownBtn" class="flex items-center gap-1 hover:text-[#F97316] transition">
             Home <i class="bi bi-chevron-down text-xs"></i>
           </button>
           <ul id="homeDropdownMenu"
             class="absolute left-0 mt-3 w-44 bg-white text-black rounded-xl shadow-xl border border-slate-100 hidden z-50">
-            <li><a href="index.html" class="block px-4 py-2 rounded-t-xl hover:text-[#8B5CF6] hover:bg-slate-50">Home 1</a></li>
-            <li><a href="home2.html" class="block px-4 py-2 rounded-b-xl hover:text-[#8B5CF6] hover:bg-slate-50">Home 2</a></li>
+            <li><a href="index.html" class="block px-4 py-2 rounded-t-xl hover:text-[#F97316] hover:bg-slate-50">Home 1</a></li>
+            <li><a href="home2.html" class="block px-4 py-2 rounded-b-xl hover:text-[#F97316] hover:bg-slate-50">Home 2</a></li>
           </ul>
         </li>
 
-        <li><a href="about.html" class="hover:text-[#8B5CF6] transition">About</a></li>
-        <li><a href="service.html" class="hover:text-[#8B5CF6] transition">Services</a></li>
-        <li><a href="portfolio.html" class="hover:text-[#8B5CF6] transition">Portfolio</a></li>
-        <li><a href="blog.html" class="hover:text-[#8B5CF6] transition">Blog</a></li>
-        <li><a href="gallery.html" class="hover:text-[#8B5CF6] transition">Gallery</a></li>
-        <li><a href="contact.html" class="hover:text-[#8B5CF6] transition">Contact</a></li>
+        <li><a href="about.html" class="hover:text-[#F97316] transition">About</a></li>
+        <li><a href="service.html" class="hover:text-[#F97316] transition">Services</a></li>
+        <li><a href="portfolio.html" class="hover:text-[#F97316] transition">Portfolio</a></li>
+        <li><a href="blog.html" class="hover:text-[#F97316] transition">Blog</a></li>
+        <li><a href="gallery.html" class="hover:text-[#F97316] transition">Gallery</a></li>
+        <li><a href="contact.html" class="hover:text-[#F97316] transition">Contact</a></li>
 
         <!-- Dashboard Dropdown -->
         <li class="relative">
-          <button id="dashboardDropdownBtn" class="flex items-center gap-1 hover:text-[#8B5CF6] transition">
+          <button id="dashboardDropdownBtn" class="flex items-center gap-1 hover:text-[#F97316] transition">
             Dashboard <i class="bi bi-chevron-down text-xs"></i>
           </button>
           <ul id="dashboardDropdownMenu"
             class="absolute left-0 mt-3 w-40 bg-white text-black rounded-xl shadow-xl border border-slate-100 hidden z-50">
-            <li><a href="user.html" class="block px-4 py-2 hover:text-[#8B5CF6] hover:bg-slate-50 rounded-t-xl">User</a></li>
-            <li><a href="admin.html" class="block px-4 py-2 hover:text-[#8B5CF6] hover:bg-slate-50 rounded-b-xl">Admin</a></li>
+            <li><a href="user.html" class="block px-4 py-2 hover:text-[#F97316] hover:bg-slate-50 rounded-t-xl">User</a></li>
+            <li><a href="admin.html" class="block px-4 py-2 hover:text-[#F97316] hover:bg-slate-50 rounded-b-xl">Admin</a></li>
           </ul>
         </li>
 
@@ -62,31 +62,31 @@ document.addEventListener("DOMContentLoaded", () => {
       <div id="rightButtons" class="hidden lg:flex items-center gap-4">
 
         <!-- Theme -->
-        <button id="theme-toggle" class="w-12 h-12 flex items-center justify-center rounded border-2 border-slate-200 text-lg text-black hover:border-[#8B5CF6] hover:text-[#8B5CF6] transition duration-200">
+        <button id="theme-toggle" class="w-12 h-12 flex items-center justify-center rounded border-2 border-slate-200 text-lg text-black hover:border-[#F97316] hover:text-[#F97316] transition duration-200">
           <i class="themeIcon bi bi-moon-stars-fill"></i>
         </button>
 
         <!-- RTL -->
-        <button id="rtlToggle" class="w-12 h-12 flex items-center justify-center rounded border-2 border-slate-200 text-lg text-black hover:border-[#8B5CF6] hover:text-[#8B5CF6] transition duration-200">
+        <button id="rtlToggle" class="w-12 h-12 flex items-center justify-center rounded border-2 border-slate-200 text-lg text-black hover:border-[#F97316] hover:text-[#F97316] transition duration-200">
           <i class="bi bi-arrow-left-right"></i>
         </button>
 
         <!-- Sign Up (secondary outlined) -->
         <a href="sign.html"
-          class="w-24 text-center py-3 rounded-xl border-2 border-[#8B5CF6] text-[#8B5CF6] text-sm font-bold hover:bg-[#8B5CF6] hover:text-white transition duration-200">
+          class="w-24 h-12 flex items-center justify-center rounded-xl border-2 border-[#F97316] text-[#F97316] text-sm font-bold hover:bg-[#F97316] hover:text-white transition duration-200">
           Sign Up
         </a>
 
         <!-- Login (primary CTA pill) -->
         <a href="login.html"
-          class="w-24 text-center py-3 rounded-xl bg-[#8B5CF6] text-white text-sm font-bold hover:bg-violet-600 hover:shadow-md transition duration-200">
+          class="w-24 h-12 flex items-center justify-center rounded-xl border-2 border-transparent bg-[#F97316] text-white text-sm font-bold hover:bg-red-600 hover:shadow-md transition duration-200">
           Login
         </a>
 
       </div>
 
       <!-- Hamburger (mobile/tablet only) -->
-      <button id="hamburgerBtn" class="flex items-center justify-center text-3xl text-[#8B5CF6]">
+      <button id="hamburgerBtn" class="flex items-center justify-center text-3xl text-[#F97316]">
         <i class="bi bi-list" id="hamburgerIcon"></i>
       </button>
 
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <!-- Mobile Menu -->
 <div id="mobileMenu"
-  class="fixed top-0 right-0 h-full w-72 bg-white text-[#8B5CF6] z-50
+  class="fixed top-0 right-0 h-full w-72 bg-white text-[#F97316] z-50
          transform translate-x-full transition-transform duration-300 shadow-2xl">
 
   <!-- Header -->
@@ -157,21 +157,21 @@ document.addEventListener("DOMContentLoaded", () => {
         <!-- Auth CTA buttons -->
         <div class="flex gap-3">
           <a href="sign.html"
-            class="flex-1 text-center px-4 py-3 rounded-xl border-2 border-[#8B5CF6] text-[#8B5CF6] text-sm font-bold hover:bg-[#8B5CF6] hover:text-white transition duration-200">
+            class="flex-1 h-12 flex items-center justify-center rounded-xl border-2 border-[#F97316] text-[#F97316] text-sm font-bold hover:bg-[#F97316] hover:text-white transition duration-200">
             Sign Up
           </a>
           <a href="login.html"
-            class="flex-1 text-center px-4 py-3 rounded-xl bg-[#8B5CF6] text-white text-sm font-bold hover:bg-violet-600 hover:shadow-md transition duration-200">
+            class="flex-1 h-12 flex items-center justify-center rounded-xl border-2 border-transparent bg-[#F97316] text-white text-sm font-bold hover:bg-red-600 hover:shadow-md transition duration-200">
             Login
           </a>
         </div>
 
         <!-- Controls row -->
         <div class="flex justify-around">
-          <button id="mobile-theme-toggle" class="w-12 h-12 flex items-center justify-center rounded border-2 border-slate-200 text-2xl hover:border-[#8B5CF6] transition duration-200">
+          <button id="mobile-theme-toggle" class="w-12 h-12 flex items-center justify-center rounded border-2 border-slate-200 text-2xl hover:border-[#F97316] transition duration-200">
             <i class="themeIcon bi bi-moon-stars-fill"></i>
           </button>
-          <button id="mobile-rtl-toggle" class="w-12 h-12 flex items-center justify-center rounded border-2 border-slate-200 text-2xl hover:border-[#8B5CF6] transition duration-200">
+          <button id="mobile-rtl-toggle" class="w-12 h-12 flex items-center justify-center rounded border-2 border-slate-200 text-2xl hover:border-[#F97316] transition duration-200">
             <i class="bi bi-arrow-left-right"></i>
           </button>
         </div>

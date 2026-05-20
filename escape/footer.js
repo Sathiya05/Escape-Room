@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <div>
         <h1 class="text-2xl text-slate-900 font-bold">
           <a href="index.html">
-            HIDDEN <span class="text-[#8B5CF6] font-bold">LOGIC</span>
+            HIDDEN <span class="text-[#F97316] font-bold">LOGIC</span>
           </a>
         </h1>
         <p class="text-gray-500 text-sm leading-relaxed mt-4">
@@ -23,9 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </p>
 
         <div class="flex gap-4 mt-6 text-lg">
-          <a href="#" class="hover:text-[#8B5CF6] transition text-gray-400"><i class="bi bi-linkedin"></i></a>
-          <a href="#" class="hover:text-[#8B5CF6] transition text-gray-400"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="hover:text-[#8B5CF6] transition text-gray-400"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="hover:text-[#F97316] transition text-gray-400"><i class="bi bi-linkedin"></i></a>
+          <a href="#" class="hover:text-[#F97316] transition text-gray-400"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="hover:text-[#F97316] transition text-gray-400"><i class="bi bi-twitter-x"></i></a>
         </div>
       </div>
 
@@ -35,10 +35,10 @@ document.addEventListener("DOMContentLoaded", () => {
           Our Specializations
         </h3>
         <ul class="space-y-2 text-gray-500 text-sm">
-          <li><a href="#" class="hover:text-[#8B5CF6] transition">Concept & Narrative Design</a></li>
-          <li><a href="#" class="hover:text-[#8B5CF6] transition">Mechanical Puzzle Builds</a></li>
-          <li><a href="#" class="hover:text-[#8B5CF6] transition">Software & Tech Integration</a></li>
-          <li><a href="#" class="hover:text-[#8B5CF6] transition">Full Turnkey Installations</a></li>
+          <li><a href="#" class="hover:text-[#F97316] transition">Concept & Narrative Design</a></li>
+          <li><a href="#" class="hover:text-[#F97316] transition">Mechanical Puzzle Builds</a></li>
+          <li><a href="#" class="hover:text-[#F97316] transition">Software & Tech Integration</a></li>
+          <li><a href="#" class="hover:text-[#F97316] transition">Full Turnkey Installations</a></li>
         </ul>
       </div>
 
@@ -48,11 +48,11 @@ document.addEventListener("DOMContentLoaded", () => {
           Quick Links
         </h3>
         <ul class="space-y-2 text-gray-500 text-sm">
-          <li><a href="about.html" class="hover:text-[#8B5CF6] transition">About</a></li>
-          <li><a href="portfolio.html" class="hover:text-[#8B5CF6] transition">Portfolio</a></li>
-          <li><a href="blog.html" class="hover:text-[#8B5CF6] transition">Blog</a></li>
-          <li><a href="contact.html" class="hover:text-[#8B5CF6] transition">Book a Consultation</a></li>
-          <li><a href="user.html" class="hover:text-[#8B5CF6] transition">Client Dashboard</a></li>
+          <li><a href="about.html" class="hover:text-[#F97316] transition">About</a></li>
+          <li><a href="portfolio.html" class="hover:text-[#F97316] transition">Portfolio</a></li>
+          <li><a href="blog.html" class="hover:text-[#F97316] transition">Blog</a></li>
+          <li><a href="contact.html" class="hover:text-[#F97316] transition">Book a Consultation</a></li>
+          <li><a href="user.html" class="hover:text-[#F97316] transition">Client Dashboard</a></li>
         </ul>
       </div>
 
@@ -64,15 +64,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <ul class="space-y-3 text-gray-500 text-sm">
           <li class="flex items-start gap-2">
-            <i class="bi bi-geo-alt-fill text-[#8B5CF6]"></i>
+            <i class="bi bi-geo-alt-fill text-[#F97316]"></i>
             <span>Structural District, London, UK</span>
           </li>
           <li class="flex items-center gap-2">
-            <i class="bi bi-telephone-fill text-[#8B5CF6]"></i>
+            <i class="bi bi-telephone-fill text-[#F97316]"></i>
             <span>+44 20 7946 0123</span>
           </li>
           <li class="flex items-center gap-2">
-            <i class="bi bi-envelope-fill text-[#8B5CF6]"></i>
+            <i class="bi bi-envelope-fill text-[#F97316]"></i>
             <span>build@hiddenlogic.io</span>
           </li>
         </ul>

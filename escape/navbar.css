@@ -7,15 +7,17 @@ body {
 }
 
 /* ===== GLOBAL TYPOGRAPHY ===== */
-/* Headings: max font-weight 600 (semibold) */
+/* Headings: Playfair Display, max font-weight 550 (below semibold) */
 h1,
 h2,
 h1 *,
 h2 * {
-  font-weight: 600 !important;
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 550 !important;
+  letter-spacing: 0.01em;
 }
 
-/* Subheadings / descriptive text: between 400-550 (500 is medium) */
+/* Subheadings / descriptive text: Playfair Display, between 400-550 (500 is medium) */
 h3,
 h4,
 h5,
@@ -24,16 +26,25 @@ h3 *,
 h4 *,
 h5 *,
 h6 * {
+  font-family: 'Playfair Display', serif !important;
   font-weight: 500 !important;
+  letter-spacing: 0.01em;
 }
 
-/* Body / paragraph text: 400 (regular) */
+/* Body / paragraph text: Manrope, 400 (regular) */
+body,
 p,
 li,
 span,
 label,
 small,
-caption {
+caption,
+a,
+button,
+input,
+textarea,
+select {
+  font-family: 'Manrope', sans-serif;
   font-weight: 400;
 }
 
@@ -49,7 +60,7 @@ button[type="submit"],
 /* ===== ACTIVE LINK ===== */
 .nav-active {
   font-weight: 700;
-  color: #8B5CF6 !important;
+  color: #F97316 !important;
   position: relative;
 }
 
@@ -60,13 +71,13 @@ button[type="submit"],
   bottom: -6px;
   width: 100%;
   height: 2px;
-  background-color: #8B5CF6;
+  background-color: #F97316;
   border-radius: 2px;
 }
 
 .home-active {
   font-weight: 700 !important;
-  color: #8B5CF6 !important;
+  color: #F97316 !important;
 }
 
 /* Hide underline on dropdown items */
@@ -118,7 +129,7 @@ button[type="submit"],
 
 [data-theme="dark"] #homeDropdownMenu a:hover,
 [data-theme="dark"] #dashboardDropdownMenu a:hover {
-  color: #8B5CF6 !important;
+  color: #F97316 !important;
 }
 
 [data-theme="dark"] #hamburgerBtn i,
@@ -130,7 +141,7 @@ button[type="submit"],
 
 /* ===== HAMBURGER ICON ===== */
 #hamburgerBtn i {
-  color: #8B5CF6;
+  color: #F97316;
 }
 
 /* ===== BREAKPOINT: BELOW 1280px = MOBILE/TABLET MODE ===== */
@@ -243,25 +254,25 @@ button[type="submit"],
 }
 
 .h5 {
-  color: #8B5CF6;
+  color: #F97316;
 }
 
 /* ===== DARK MODE VISIBILITY FIXES ===== */
-/* Fix light violet/purple backgrounds turning invisible with white text */
-[data-theme="dark"] .bg-violet-50,
-[data-theme="dark"] .bg-violet-100,
-[data-theme="dark"] .bg-violet-200,
-[data-theme="dark"] .bg-purple-50,
-[data-theme="dark"] .bg-purple-100,
-[data-theme="dark"] .bg-purple-200 {
-  background-color: rgba(139, 92, 246, 0.15) !important;
-  border-color: rgba(139, 92, 246, 0.3) !important;
+/* Fix light red/orange backgrounds turning invisible with white text */
+[data-theme="dark"] .bg-red-50,
+[data-theme="dark"] .bg-red-100,
+[data-theme="dark"] .bg-red-200,
+[data-theme="dark"] .bg-orange-50,
+[data-theme="dark"] .bg-orange-100,
+[data-theme="dark"] .bg-orange-200 {
+  background-color: rgba(249, 115, 22, 0.15) !important;
+  border-color: rgba(249, 115, 22, 0.3) !important;
 }
 
 /* Fix borders that are too light in dark mode */
-[data-theme="dark"] .border-violet-200,
-[data-theme="dark"] .border-purple-200 {
-  border-color: rgba(139, 92, 246, 0.3) !important;
+[data-theme="dark"] .border-red-200,
+[data-theme="dark"] .border-orange-200 {
+  border-color: rgba(249, 115, 22, 0.3) !important;
 }
 
 /* Preserve gradient text that gets overridden by global dark mode */
@@ -275,6 +286,6 @@ button[type="submit"],
   color: #facc15 !important;
 }
 
-[data-theme="dark"] .text-violet-400 {
-  color: #a78bfa !important;
+[data-theme="dark"] .text-red-400 {
+  color: #fb923c !important;
 }

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="footer.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;900&display=swap"
     rel="stylesheet">
   <style>
     /* RTL */
@@ -100,17 +100,11 @@
       background-color: #000000 !important;
     }
 
-    /* Section backgrounds that use #F8F7FF */
-    [data-theme="dark"] section.bg-\[\#F8F7FF\] {
+    /* Section backgrounds that use #FFF7ED */
+    [data-theme="dark"] section.bg-\[\#FFF7ED\] {
       background-color: #000000 !important;
     }
 
-    /* Override gray text colours in dark mode for readability */
-    [data-theme="dark"] .text-gray-600,
-    [data-theme="dark"] .text-gray-500,
-    [data-theme="dark"] .text-gray-700 {
-      color: #c4b5fd !important;
-    }
 
     [data-theme="dark"] .text-gray-900 {
       color: #ffffff !important;
@@ -123,15 +117,15 @@
 
     /* Hero badge */
     [data-theme="dark"] .hero-badge {
-      background-color: rgba(109, 40, 217, 0.3) !important;
-      border-color: rgba(139, 92, 246, 0.5) !important;
+      background-color: rgba(234, 88, 12, 0.3) !important;
+      border-color: rgba(249, 115, 22, 0.5) !important;
       color: #c4b5fd !important;
     }
 
     /* Hero outline button (white bg) */
     [data-theme="dark"] .hero-outline-btn {
       background-color: rgba(255,255,255,0.08) !important;
-      border-color: rgba(139, 92, 246, 0.5) !important;
+      border-color: rgba(249, 115, 22, 0.5) !important;
       color: #c4b5fd !important;
     }
 
@@ -152,8 +146,8 @@
 
     /* Carousel badge (light lavender bg) */
     [data-theme="dark"] .carousel-badge {
-      background-color: rgba(109, 40, 217, 0.25) !important;
-      border-color: rgba(139, 92, 246, 0.4) !important;
+      background-color: rgba(234, 88, 12, 0.25) !important;
+      border-color: rgba(249, 115, 22, 0.4) !important;
       color: #c4b5fd !important;
     }
 
@@ -165,7 +159,7 @@
 
     /* Card 2 icon bg */
     [data-theme="dark"] .carousel-card-light-icon {
-      background-color: rgba(109, 40, 217, 0.25) !important;
+      background-color: rgba(234, 88, 12, 0.25) !important;
       color: #c4b5fd !important;
     }
 
@@ -174,9 +168,9 @@
       color: #a78bfa !important;
     }
 
-    /* Prev nav button (light violet bg) */
+    /* Prev nav button (light red bg) */
     [data-theme="dark"] #prevBtn {
-      background-color: rgba(109, 40, 217, 0.25) !important;
+      background-color: rgba(234, 88, 12, 0.25) !important;
       color: #c4b5fd !important;
     }
   </style>
@@ -222,16 +216,16 @@
 
     <!-- OVERLAY -->
     <div
-        class="hero-overlay absolute inset-0 bg-white/60 backdrop-blur-[2px]">
+        class="hero-overlay absolute inset-0 bg-black/50 backdrop-blur-[2px]">
     </div>
 
     <!-- GLOW -->
     <div
-        class="absolute top-0 left-0 w-[500px] h-[450px] bg-violet-300 blur-[150px] opacity-30 rounded-full">
+        class="absolute top-0 left-0 w-[500px] h-[450px] bg-red-300 blur-[150px] opacity-30 rounded-full">
     </div>
 
     <div
-        class="absolute bottom-0 right-0 w-[500px] h-[400px] bg-purple-300 blur-[150px] opacity-30 rounded-full">
+        class="absolute bottom-0 right-0 w-[500px] h-[400px] bg-orange-300 blur-[150px] opacity-30 rounded-full">
     </div>
 
     <!-- PATTERN -->
@@ -247,7 +241,7 @@
 
             <!-- BADGE -->
             <div
-                class="hero-badge inline-flex items-center gap-3 px-5 py-3 rounded-full bg-violet-100 border border-violet-200 text-violet-700 text-sm font-semibold mb-8">
+                class="hero-badge inline-flex items-center gap-3 px-5 py-3 rounded-full bg-white/15 border border-white/25 text-white text-sm font-semibold mb-8">
 
                 <i class="bi bi-stars"></i>
                 IMMERSIVE ESCAPE ROOM CONSULTANCY
@@ -255,11 +249,11 @@
 
             <!-- HEADING -->
             <h1
-                class="hero-heading text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 leading-tight mb-5 sm:mb-8">
+                class="hero-heading text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-tight mb-5 sm:mb-8">
 
                 Creating
                 <span
-                    class="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-600">
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-600">
 
                     Next-Level
                 </span>
@@ -269,7 +263,7 @@
 
             <!-- DESCRIPTION -->
             <p
-                class="hero-desc text-gray-700 text-lg sm:text-xl leading-relaxed max-w-3xl mx-auto mb-10">
+                class="hero-desc text-gray-300 text-lg sm:text-xl leading-relaxed max-w-3xl mx-auto mb-10">
 
                 From cinematic storytelling and smart puzzle systems to
                 full-scale construction planning, we design immersive
@@ -280,13 +274,17 @@
             <div
                 class="flex flex-wrap items-center justify-center gap-5">
 
-                <!-- BUTTON -->
-                <a href="blog.html"
-                    class="hero-outline-btn px-8 py-4 rounded-2xl border border-violet-200 bg-white text-violet-700 font-semibold hover:bg-violet-50 transition-all duration-300 flex items-center gap-3">
+                <!-- PLAY BUTTON -->
+                <button
+                    class="hero-outline-btn group flex items-center gap-4 text-white font-semibold transition-all duration-300">
 
-                    Explore Blog
-                    <i class="bi bi-grid-fill"></i>
-                </a>
+                    <span class="relative w-16 h-16 rounded-full bg-white/15 border border-white/30 flex items-center justify-center group-hover:bg-white/25 transition-all duration-300">
+                        <i class="bi bi-play-fill text-2xl ml-0.5"></i>
+                        <span class="absolute inset-0 rounded-full border border-white/20 animate-ping opacity-40"></span>
+                    </span>
+
+                    <span class="text-lg">Watch Trailer</span>
+                </button>
 
             </div>
 
@@ -297,15 +295,15 @@
 </section>
 <!-- SECTION1 -->
 
-<section class="relative bg-[#F8F7FF] py-14 sm:py-20 lg:py-24 overflow-hidden">
+<section class="relative bg-[#FFF7ED] py-14 sm:py-20 lg:py-24 overflow-hidden">
 
     <!-- SOFT GLOW -->
     <div
-        class="absolute top-0 left-0 w-96 h-96 bg-violet-100 blur-[120px] opacity-60 rounded-full">
+        class="absolute top-0 left-0 w-96 h-96 bg-red-100 blur-[120px] opacity-60 rounded-full">
     </div>
 
     <div
-        class="absolute bottom-0 right-0 w-96 h-96 bg-purple-100 blur-[120px] opacity-60 rounded-full">
+        class="absolute bottom-0 right-0 w-96 h-96 bg-orange-100 blur-[120px] opacity-60 rounded-full">
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -314,7 +312,7 @@
         <div class="text-center max-w-3xl mx-auto mb-16">
 
             <span
-                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-100 border border-violet-200 text-violet-700 text-sm font-semibold mb-6">
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-100 border border-red-200 text-red-700 text-sm font-semibold mb-6">
 
                 <i class="bi bi-bar-chart-fill"></i>
                 COMPANY STATS
@@ -325,7 +323,7 @@
 
                 Trusted By
                 <span
-                    class="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-600">
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-600">
 
                     Global Entertainment Brands
                 </span>
@@ -350,7 +348,7 @@
 
                 <!-- ICON -->
                 <div
-                    class="w-14 h-14 sm:w-20 sm:h-20 rounded-2xl sm:rounded-3xl bg-violet-100 text-violet-700 flex items-center justify-center text-2xl sm:text-4xl mb-5 sm:mb-8 group-hover:scale-110 transition-all duration-500">
+                    class="w-14 h-14 sm:w-20 sm:h-20 rounded-2xl sm:rounded-3xl bg-red-100 text-red-700 flex items-center justify-center text-2xl sm:text-4xl mb-5 sm:mb-8 group-hover:scale-110 transition-all duration-500">
 
                     <i class="bi bi-controller"></i>
                 </div>
@@ -385,7 +383,7 @@
 
                 <!-- ICON -->
                 <div
-                    class="w-20 h-20 rounded-3xl bg-violet-100 text-violet-700 flex items-center justify-center text-4xl mb-8 group-hover:scale-110 transition-all duration-500">
+                    class="w-20 h-20 rounded-3xl bg-red-100 text-red-700 flex items-center justify-center text-4xl mb-8 group-hover:scale-110 transition-all duration-500">
 
                     <i class="bi bi-globe2"></i>
                 </div>
@@ -420,7 +418,7 @@
 
                 <!-- ICON -->
                 <div
-                    class="w-20 h-20 rounded-3xl bg-violet-100 text-violet-700 flex items-center justify-center text-4xl mb-8 group-hover:scale-110 transition-all duration-500">
+                    class="w-20 h-20 rounded-3xl bg-red-100 text-red-700 flex items-center justify-center text-4xl mb-8 group-hover:scale-110 transition-all duration-500">
 
                     <i class="bi bi-lightning-charge-fill"></i>
                 </div>
@@ -455,7 +453,7 @@
 
                 <!-- ICON -->
                 <div
-                    class="w-20 h-20 rounded-3xl bg-violet-100 text-violet-700 flex items-center justify-center text-4xl mb-8 group-hover:scale-110 transition-all duration-500">
+                    class="w-20 h-20 rounded-3xl bg-red-100 text-red-700 flex items-center justify-center text-4xl mb-8 group-hover:scale-110 transition-all duration-500">
 
                     <i class="bi bi-star-fill"></i>
                 </div>
@@ -497,11 +495,11 @@
 
     <!-- SOFT GLOW -->
     <div
-        class="absolute top-0 right-0 w-72 sm:w-96 h-72 sm:h-96 bg-violet-100 blur-[120px] opacity-60 rounded-full">
+        class="absolute top-0 right-0 w-72 sm:w-96 h-72 sm:h-96 bg-red-100 blur-[120px] opacity-60 rounded-full">
     </div>
 
     <div
-        class="absolute bottom-0 left-0 w-72 sm:w-96 h-72 sm:h-96 bg-purple-100 blur-[120px] opacity-60 rounded-full">
+        class="absolute bottom-0 left-0 w-72 sm:w-96 h-72 sm:h-96 bg-orange-100 blur-[120px] opacity-60 rounded-full">
     </div>
 
     <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -511,7 +509,7 @@
 
             <!-- BADGE -->
             <span
-                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-100 border border-violet-200 text-violet-700 text-xs sm:text-sm font-semibold mb-5 sm:mb-6">
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-100 border border-red-200 text-red-700 text-xs sm:text-sm font-semibold mb-5 sm:mb-6">
 
                 <i class="bi bi-question-circle-fill"></i>
                 FREQUENTLY ASKED QUESTIONS
@@ -524,7 +522,7 @@
                 Everything You Need To Know About
 
                 <span
-                    class="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-600">
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-600">
 
                     Escape Room Consultancy
 
@@ -548,7 +546,7 @@
 
             <!-- FAQ ITEM -->
             <div
-                class="faq-item bg-[#F8F7FF] border border-violet-100 rounded-[22px] sm:rounded-[30px] p-4 sm:p-6 shadow-lg transition-all duration-300">
+                class="faq-item bg-[#FFF7ED] border border-red-100 rounded-[22px] sm:rounded-[30px] p-4 sm:p-6 shadow-lg transition-all duration-300">
 
                 <!-- BUTTON -->
                 <button
@@ -559,7 +557,7 @@
 
                         <!-- ICON -->
                         <div
-                            class="w-11 h-11 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-violet-100 text-violet-700 flex items-center justify-center text-lg sm:text-2xl shrink-0">
+                            class="w-11 h-11 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-red-100 text-red-700 flex items-center justify-center text-lg sm:text-2xl shrink-0">
 
                             <i class="bi bi-controller"></i>
 
@@ -577,7 +575,7 @@
 
                     <!-- PLUS -->
                     <i
-                        class="faq-icon bi bi-plus-lg text-violet-700 text-lg sm:text-2xl transition-transform duration-300 shrink-0 mt-1">
+                        class="faq-icon bi bi-plus-lg text-red-700 text-lg sm:text-2xl transition-transform duration-300 shrink-0 mt-1">
                     </i>
 
                 </button>
@@ -602,7 +600,7 @@
 
             <!-- FAQ ITEM -->
             <div
-                class="faq-item bg-[#F8F7FF] border border-violet-100 rounded-[22px] sm:rounded-[30px] p-4 sm:p-6 shadow-lg transition-all duration-300">
+                class="faq-item bg-[#FFF7ED] border border-red-100 rounded-[22px] sm:rounded-[30px] p-4 sm:p-6 shadow-lg transition-all duration-300">
 
                 <!-- BUTTON -->
                 <button
@@ -613,7 +611,7 @@
 
                         <!-- ICON -->
                         <div
-                            class="w-11 h-11 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-violet-100 text-violet-700 flex items-center justify-center text-lg sm:text-2xl shrink-0">
+                            class="w-11 h-11 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-red-100 text-red-700 flex items-center justify-center text-lg sm:text-2xl shrink-0">
 
                             <i class="bi bi-cpu-fill"></i>
 
@@ -631,7 +629,7 @@
 
                     <!-- PLUS -->
                     <i
-                        class="faq-icon bi bi-plus-lg text-violet-700 text-lg sm:text-2xl transition-transform duration-300 shrink-0 mt-1">
+                        class="faq-icon bi bi-plus-lg text-red-700 text-lg sm:text-2xl transition-transform duration-300 shrink-0 mt-1">
                     </i>
 
                 </button>
@@ -655,7 +653,7 @@
 
             <!-- FAQ ITEM -->
             <div
-                class="faq-item bg-[#F8F7FF] border border-violet-100 rounded-[22px] sm:rounded-[30px] p-4 sm:p-6 shadow-lg transition-all duration-300">
+                class="faq-item bg-[#FFF7ED] border border-red-100 rounded-[22px] sm:rounded-[30px] p-4 sm:p-6 shadow-lg transition-all duration-300">
 
                 <!-- BUTTON -->
                 <button
@@ -666,7 +664,7 @@
 
                         <!-- ICON -->
                         <div
-                            class="w-11 h-11 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-violet-100 text-violet-700 flex items-center justify-center text-lg sm:text-2xl shrink-0">
+                            class="w-11 h-11 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-red-100 text-red-700 flex items-center justify-center text-lg sm:text-2xl shrink-0">
 
                             <i class="bi bi-kanban-fill"></i>
 
@@ -684,7 +682,7 @@
 
                     <!-- PLUS -->
                     <i
-                        class="faq-icon bi bi-plus-lg text-violet-700 text-lg sm:text-2xl transition-transform duration-300 shrink-0 mt-1">
+                        class="faq-icon bi bi-plus-lg text-red-700 text-lg sm:text-2xl transition-transform duration-300 shrink-0 mt-1">
                     </i>
 
                 </button>
@@ -719,11 +717,11 @@
 
     <!-- BACKGROUND GLOW -->
     <div
-        class="absolute top-0 right-0 w-96 h-96 bg-violet-100 blur-[120px] opacity-60 rounded-full">
+        class="absolute top-0 right-0 w-96 h-96 bg-red-100 blur-[120px] opacity-60 rounded-full">
     </div>
 
     <div
-        class="absolute bottom-0 left-0 w-96 h-96 bg-purple-100 blur-[120px] opacity-60 rounded-full">
+        class="absolute bottom-0 left-0 w-96 h-96 bg-orange-100 blur-[120px] opacity-60 rounded-full">
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -735,7 +733,7 @@
 
                 <!-- BADGE -->
                 <span
-                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-100 border border-violet-200 text-violet-700 text-sm font-semibold mb-6">
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-100 border border-red-200 text-red-700 text-sm font-semibold mb-6">
 
                     <i class="bi bi-cpu-fill"></i>
                     SMART PUZZLE TECHNOLOGY
@@ -747,7 +745,7 @@
 
                     Advanced
                     <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-600">
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-600">
 
                         Interactive Systems
                     </span>
@@ -773,7 +771,7 @@
                         class="flex items-start gap-5">
 
                         <div
-                            class="w-16 h-16 rounded-2xl bg-violet-100 text-violet-700 flex items-center justify-center text-3xl shrink-0">
+                            class="w-16 h-16 rounded-2xl bg-red-100 text-red-700 flex items-center justify-center text-3xl shrink-0">
 
                             <i class="bi bi-lightning-charge-fill"></i>
                         </div>
@@ -803,7 +801,7 @@
                         class="flex items-start gap-5">
 
                         <div
-                            class="w-16 h-16 rounded-2xl bg-violet-100 text-violet-700 flex items-center justify-center text-3xl shrink-0">
+                            class="w-16 h-16 rounded-2xl bg-red-100 text-red-700 flex items-center justify-center text-3xl shrink-0">
 
                             <i class="bi bi-broadcast-pin"></i>
                         </div>
@@ -833,7 +831,7 @@
                         class="flex items-start gap-5">
 
                         <div
-                            class="w-16 h-16 rounded-2xl bg-violet-100 text-violet-700 flex items-center justify-center text-3xl shrink-0">
+                            class="w-16 h-16 rounded-2xl bg-red-100 text-red-700 flex items-center justify-center text-3xl shrink-0">
 
                             <i class="bi bi-soundwave"></i>
                         </div>
@@ -876,7 +874,7 @@
                         <div>
 
                             <p
-                                class="text-violet-200 text-xs sm:text-sm uppercase tracking-[1px] sm:tracking-[3px] mb-2 sm:mb-3">
+                                class="text-red-200 text-xs sm:text-sm uppercase tracking-[1px] sm:tracking-[3px] mb-2 sm:mb-3">
 
                                 LIVE TECHNOLOGY
                             </p>
@@ -890,7 +888,7 @@
                         </div>
 
                         <div
-                            class="w-20 h-20 rounded-3xl bg-violet-600/20 text-violet-300 flex items-center justify-center text-4xl">
+                            class="w-20 h-20 rounded-3xl bg-red-600/20 text-red-300 flex items-center justify-center text-4xl">
 
                             <i class="bi bi-controller"></i>
                         </div>
@@ -907,7 +905,7 @@
                             <div class="flex items-center gap-4">
 
                                 <div
-                                    class="w-14 h-14 rounded-2xl bg-violet-600/20 text-violet-300 flex items-center justify-center text-2xl">
+                                    class="w-14 h-14 rounded-2xl bg-red-600/20 text-red-300 flex items-center justify-center text-2xl">
 
                                     <i class="bi bi-door-open-fill"></i>
                                 </div>
@@ -921,7 +919,7 @@
                                     </h4>
 
                                     <p
-                                        class="text-violet-200 text-sm">
+                                        class="text-red-200 text-sm">
 
                                         Automated Secret Access
                                     </p>
@@ -944,7 +942,7 @@
                             <div class="flex items-center gap-4">
 
                                 <div
-                                    class="w-14 h-14 rounded-2xl bg-violet-600/20 text-violet-300 flex items-center justify-center text-2xl">
+                                    class="w-14 h-14 rounded-2xl bg-red-600/20 text-red-300 flex items-center justify-center text-2xl">
 
                                     <i class="bi bi-lightbulb-fill"></i>
                                 </div>
@@ -958,7 +956,7 @@
                                     </h4>
 
                                     <p
-                                        class="text-violet-200 text-sm">
+                                        class="text-red-200 text-sm">
 
                                         Motion Reactive Effects
                                     </p>
@@ -981,7 +979,7 @@
                             <div class="flex items-center gap-4">
 
                                 <div
-                                    class="w-14 h-14 rounded-2xl bg-violet-600/20 text-violet-300 flex items-center justify-center text-2xl">
+                                    class="w-14 h-14 rounded-2xl bg-red-600/20 text-red-300 flex items-center justify-center text-2xl">
 
                                     <i class="bi bi-broadcast"></i>
                                 </div>
@@ -995,7 +993,7 @@
                                     </h4>
 
                                     <p
-                                        class="text-violet-200 text-sm">
+                                        class="text-red-200 text-sm">
 
                                         Puzzle Interaction Enabled
                                     </p>
@@ -1015,7 +1013,7 @@
 
                     <!-- BOTTOM -->
                     <div
-                        class="mt-10 bg-gradient-to-r from-violet-600 to-purple-600 rounded-3xl p-6">
+                        class="mt-10 bg-gradient-to-r from-red-600 to-orange-600 rounded-3xl p-6">
 
                         <div
                             class="flex items-center justify-between gap-5">
@@ -1029,7 +1027,7 @@
                                 </h4>
 
                                 <p
-                                    class="text-violet-100">
+                                    class="text-red-100">
 
                                     Successfully integrated into
                                     immersive escape room environments.
@@ -1055,15 +1053,15 @@
 </section>
 <!-- SECTION4 -->
  <!-- IMMERSIVE EXPERIENCE SHOWCASE -->
-<section class="relative bg-[#F8F7FF] py-20 sm:py-24 overflow-hidden">
+<section class="relative bg-[#FFF7ED] py-20 sm:py-24 overflow-hidden">
 
     <!-- BACKGROUND GLOW -->
     <div
-        class="absolute top-0 left-0 w-[500px] h-[500px] bg-violet-200 blur-[150px] opacity-40 rounded-full">
+        class="absolute top-0 left-0 w-[500px] h-[500px] bg-red-200 blur-[150px] opacity-40 rounded-full">
     </div>
 
     <div
-        class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-200 blur-[150px] opacity-40 rounded-full">
+        class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-orange-200 blur-[150px] opacity-40 rounded-full">
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1077,7 +1075,7 @@
 
                 <!-- BADGE -->
                 <span
-                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-100 border border-violet-200 text-violet-700 text-sm font-semibold mb-6">
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-100 border border-red-200 text-red-700 text-sm font-semibold mb-6">
 
                     <i class="bi bi-stars"></i>
                     IMMERSIVE EXPERIENCE DESIGN
@@ -1089,7 +1087,7 @@
 
                     Crafting
                     <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-600">
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-600">
 
                         Cinematic Escape Worlds
                     </span>
@@ -1131,13 +1129,6 @@
                 <div
                     class="absolute bottom-0 left-0 p-8 sm:p-10 lg:p-12 max-w-2xl">
 
-                    <!-- TAG -->
-                    <div
-                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/10 text-white text-sm font-semibold mb-6">
-
-                        <i class="bi bi-door-open-fill"></i>
-                        FEATURED EXPERIENCE
-                    </div>
 
                     <!-- TITLE -->
                     <h3
@@ -1148,7 +1139,7 @@
 
                     <!-- TEXT -->
                     <p
-                        class="text-violet-100 text-lg leading-relaxed mb-8">
+                        class="text-red-100 text-lg leading-relaxed mb-8">
 
                         A cinematic horror escape room featuring hidden
                         passageways, motion-triggered effects, immersive
@@ -1181,7 +1172,7 @@
 
                     <!-- BUTTON -->
                     <a href="portfolio.html"
-                        class="inline-flex items-center gap-3 px-7 py-4 rounded-2xl bg-white text-violet-700 font-bold hover:gap-5 transition-all duration-300 shadow-xl border border-white/50">
+                        class="inline-flex items-center gap-3 px-7 py-4 rounded-2xl bg-white text-red-700 font-bold hover:gap-5 transition-all duration-300 shadow-xl border border-white/50">
 
                         Explore Project
                         <i class="bi bi-arrow-right"></i>
@@ -1206,14 +1197,14 @@
 
                         <!-- ICON -->
                         <div
-                            class="w-20 h-20 rounded-3xl bg-violet-100 text-violet-700 flex items-center justify-center text-4xl shrink-0">
+                            class="w-20 h-20 rounded-3xl bg-red-100 text-red-700 flex items-center justify-center text-4xl shrink-0">
 
                             <i class="bi bi-cpu-fill"></i>
                         </div>
 
                         <!-- NUMBER -->
                         <span
-                            class="text-6xl font-black text-violet-100">
+                            class="text-6xl font-black text-red-100">
 
                             01
                         </span>
@@ -1238,7 +1229,7 @@
 
                     <!-- LINK -->
                     <a href="#"
-                        class="inline-flex items-center gap-2 text-violet-700 font-semibold hover:gap-4 transition-all duration-300">
+                        class="inline-flex items-center gap-2 text-red-700 font-semibold hover:gap-4 transition-all duration-300">
 
                         Learn More
                         <i class="bi bi-arrow-right"></i>
@@ -1253,7 +1244,7 @@
 
                     <!-- CARD -->
                     <div
-                        class="bg-gradient-to-br from-violet-600 to-purple-600 rounded-[35px] p-8 shadow-2xl text-white">
+                        class="bg-gradient-to-br from-red-600 to-orange-600 rounded-[35px] p-8 shadow-2xl text-white">
 
                         <!-- ICON -->
                         <div
@@ -1271,7 +1262,7 @@
 
                         <!-- TEXT -->
                         <p
-                            class="text-violet-100 leading-relaxed text-sm">
+                            class="text-red-100 leading-relaxed text-sm">
 
                             Fog systems, synchronized lighting,
                             cinematic audio, and real-time triggers.
@@ -1299,7 +1290,7 @@
 
                         <!-- TEXT -->
                         <p
-                            class="text-violet-100 leading-relaxed text-sm">
+                            class="text-red-100 leading-relaxed text-sm">
 
                             Dashboard monitoring, room analytics,
                             and immersive control systems.
@@ -1320,15 +1311,15 @@
 
 <!-- SECTION5 -->
  <!-- TESTIMONIAL SECTION -->
-<section class="relative bg-[#F8F7FF] py-14 sm:py-20 lg:py-24 overflow-hidden">
+<section class="relative bg-[#FFF7ED] py-14 sm:py-20 lg:py-24 overflow-hidden">
 
     <!-- BACKGROUND GLOW -->
     <div
-        class="absolute top-0 left-0 w-[450px] h-[450px] bg-violet-200 blur-[140px] opacity-40 rounded-full">
+        class="absolute top-0 left-0 w-[450px] h-[450px] bg-red-200 blur-[140px] opacity-40 rounded-full">
     </div>
 
     <div
-        class="absolute bottom-0 right-0 w-[450px] h-[450px] bg-purple-200 blur-[140px] opacity-40 rounded-full">
+        class="absolute bottom-0 right-0 w-[450px] h-[450px] bg-orange-200 blur-[140px] opacity-40 rounded-full">
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1339,7 +1330,7 @@
 
             <!-- BADGE -->
             <span
-                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-100 border border-violet-200 text-violet-700 text-sm font-semibold mb-6">
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-100 border border-red-200 text-red-700 text-sm font-semibold mb-6">
 
                 <i class="bi bi-chat-quote-fill"></i>
                 CLIENT TESTIMONIALS
@@ -1351,7 +1342,7 @@
 
                 Trusted By
                 <span
-                    class="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-600">
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-600">
 
                     Escape Room Brands
                 </span>
@@ -1378,7 +1369,7 @@
 
                 <!-- QUOTE ICON -->
                 <div
-                    class="w-16 h-16 sm:w-24 sm:h-24 rounded-[20px] sm:rounded-[30px] bg-white/10 border border-white/10 text-violet-300 flex items-center justify-center text-3xl sm:text-5xl mb-6 sm:mb-10">
+                    class="w-16 h-16 sm:w-24 sm:h-24 rounded-[20px] sm:rounded-[30px] bg-white/10 border border-white/10 text-red-300 flex items-center justify-center text-3xl sm:text-5xl mb-6 sm:mb-10">
 
                     <i class="bi bi-quote"></i>
                 </div>
@@ -1410,7 +1401,7 @@
                         </h4>
 
                         <p
-                            class="text-violet-200">
+                            class="text-red-200">
 
                             Founder, Mystery Realm Escape
                         </p>
@@ -1472,7 +1463,7 @@
                         </div>
 
                         <i
-                            class="bi bi-quote text-5xl text-violet-100"></i>
+                            class="bi bi-quote text-5xl text-red-100"></i>
 
                     </div>
 
@@ -1501,7 +1492,7 @@
 
                 <!-- CARD -->
                 <div
-                    class="bg-gradient-to-br from-violet-600 to-purple-600 rounded-[24px] sm:rounded-[35px] p-5 sm:p-8 shadow-2xl text-white hover:-translate-y-2 transition-all duration-500">
+                    class="bg-gradient-to-br from-red-600 to-orange-600 rounded-[24px] sm:rounded-[35px] p-5 sm:p-8 shadow-2xl text-white hover:-translate-y-2 transition-all duration-500">
 
                     <!-- TOP -->
                     <div
@@ -1524,7 +1515,7 @@
                                 </h4>
 
                                 <p
-                                    class="text-violet-100 text-sm">
+                                    class="text-red-100 text-sm">
 
                                     Puzzle District
                                 </p>
@@ -1540,7 +1531,7 @@
 
                     <!-- REVIEW -->
                     <p
-                        class="leading-relaxed mb-8 text-violet-50">
+                        class="leading-relaxed mb-8 text-red-50">
 
                         “Their immersive storytelling and cinematic
                         room concepts helped us attract more players
@@ -1642,7 +1633,7 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Poppins', 'ui-sans-serif', 'system-ui'],
+            sans: ['Manrope', 'ui-sans-serif', 'system-ui'],
           },
         },
       },
